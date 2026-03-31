@@ -1,0 +1,330 @@
+/* ===== BASE ===== */
+.wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff5f0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 48px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e3a4a;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.logo:hover { opacity: 1; }
+
+.card {
+  background: white;
+  border-radius: 28px;
+  padding: 36px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== PROGRESS ===== */
+.progressBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.progressDot {
+  height: 4px;
+  flex: 1;
+  border-radius: 4px;
+  background: #f0f0f0;
+  transition: all 0.3s;
+}
+
+.progressDone { background: #e8845a; }
+.progressActive { background: linear-gradient(90deg, #e8845a, #5aacb8); }
+
+/* ===== HEADER ===== */
+.welcomeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232, 132, 90, 0.1);
+  color: #e8845a;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.stepNumber {
+  font-size: 11px;
+  font-weight: 700;
+  color: #e8845a;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.stepTitle {
+  font-size: clamp(24px, 4vw, 30px);
+  font-weight: 800;
+  color: #1e3a4a;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.stepSub {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* ===== INTENCIÓN ===== */
+.intentionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.intentionCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.intentionCard:hover {
+  border-color: rgba(232, 132, 90, 0.4);
+  background: white;
+  transform: translateX(4px);
+}
+
+.intentionCardSelected {
+  border-color: #e8845a;
+  background: rgba(232, 132, 90, 0.06);
+}
+
+.intentionEmoji { font-size: 24px; flex-shrink: 0; }
+.intentionTitle { font-size: 15px; font-weight: 700; color: #1e3a4a; }
+.intentionSub { font-size: 12px; color: #999; margin-top: 3px; }
+
+/* ===== CIUDADES ===== */
+.cityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cityCard {
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 16px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.cityCard:hover { border-color: rgba(232, 132, 90, 0.4); background: white; }
+.cityCardSelected { border-color: #e8845a; background: rgba(232, 132, 90, 0.06); }
+.cityFlag {
+  font-size: 26px;
+  margin-bottom: 6px;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+.cityName { font-size: 13px; font-weight: 700; color: #1e3a4a; }
+.cityCount { font-size: 11px; color: #e8845a; font-weight: 600; margin-top: 2px; }
+
+/* ===== SEMESTRE ===== */
+.semestreGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.semCard {
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.semCard:hover { border-color: rgba(232, 132, 90, 0.4); }
+.semCardSelected { border-color: #e8845a; background: rgba(232, 132, 90, 0.06); }
+.semTitle { font-size: 12px; font-weight: 700; color: #1e3a4a; }
+.semSub { font-size: 11px; color: #999; margin-top: 2px; }
+
+/* ===== FORM ===== */
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.formField { margin-bottom: 16px; }
+
+.fieldLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.fieldInput {
+  width: 100%;
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: #1e3a4a;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  outline: none;
+  appearance: none;
+}
+
+.fieldInput:focus { border-color: #e8845a; background: white; }
+
+/* ===== CHIPS ===== */
+.lifeSection { margin-bottom: 20px; }
+
+.chipsRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.chip {
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 100px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.chip:hover { border-color: rgba(232, 132, 90, 0.4); color: #1e3a4a; }
+.chipSelected { border-color: #e8845a; background: rgba(232, 132, 90, 0.08); color: #e8845a; font-weight: 700; }
+
+/* ===== ACTIVACIÓN ===== */
+.activationGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.activationCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.activationCard:hover {
+  border-color: #e8845a;
+  background: rgba(232, 132, 90, 0.04);
+  transform: translateX(4px);
+}
+
+.activationEmoji { font-size: 24px; flex-shrink: 0; }
+.activationTitle { font-size: 15px; font-weight: 700; color: #1e3a4a; }
+.activationSub { font-size: 12px; color: #999; margin-top: 3px; }
+.activationArrow { margin-left: auto; font-size: 18px; color: #ccc; flex-shrink: 0; }
+
+.activationNote {
+  text-align: center;
+  font-size: 12px;
+  color: #bbb;
+  padding-top: 8px;
+}
+
+/* ===== BOTONES ===== */
+.btnPrimary {
+  width: 100%;
+  background: linear-gradient(135deg, #1e3a4a, #2a5568);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  box-shadow: 0 6px 24px rgba(30, 58, 74, 0.2);
+  margin-top: 8px;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 32px rgba(30, 58, 74, 0.3);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnBack {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #bbb;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+.btnBack:hover { color: #1e3a4a; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .card { padding: 24px 18px; border-radius: 20px; }
+  .cityGrid { grid-template-columns: 1fr 1fr; }
+  .formRow { grid-template-columns: 1fr; }
+  .chipsRow { gap: 6px; }
+  .chip { font-size: 12px; padding: 8px 12px; }
+}

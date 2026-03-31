@@ -1,0 +1,147 @@
+.section {
+  background: #f8f9ff;
+  padding: 80px 48px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  color: #1e3a4a;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 16px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.stars {
+  color: #e8845a;
+  font-size: 18px;
+}
+
+.ratingNum {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e3a4a;
+}
+
+.ratingText {
+  font-size: 13px;
+  color: #999;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardStars {
+  color: #e8845a;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.cardTag {
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(232, 132, 90, 0.1);
+  color: #e8845a;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.cardText {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.7;
+  flex: 1;
+  font-style: italic;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #1e3a4a;
+}
+
+.uni {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
