@@ -2,132 +2,331 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Testimonios from "./components/Testimonios";
+import styles from "./landing.module.css";
+
+export const metadata = {
+  title: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
+  description:
+    "Forma tu grupo de piso con estudiantes compatibles en tu ciudad de destino. Para Erasmus, másters e intercambios. Sin caos, sin WhatsApp eternos.",
+};
 
 export default function Home() {
   return (
-    <main style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', background: "#fff", color: "#1e3a4a" }}>
-
+    <main style={{
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      background: "#fff",
+      color: "#1e3a4a",
+      overflowX: "hidden",
+    }}>
       <Navbar />
-      {/* HERO */}
-      <section style={{
-        background: "linear-gradient(135deg, #f8f9ff 0%, #fff5f0 100%)",
-        padding: "100px 48px 80px", textAlign: "center", position: "relative", overflow: "hidden"
-      }}>
-        {/* Decorative circles */}
-        <div style={{
-          position: "absolute", width: "500px", height: "500px", borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(232,132,90,0.08) 0%, transparent 70%)",
-          top: "-100px", right: "-100px", pointerEvents: "none"
-        }} />
-        <div style={{
-          position: "absolute", width: "400px", height: "400px", borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(90,172,184,0.08) 0%, transparent 70%)",
-          bottom: "-100px", left: "-100px", pointerEvents: "none"
-        }} />
 
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: "8px",
-          background: "rgba(232,132,90,0.1)", border: "1px solid rgba(232,132,90,0.2)",
-          borderRadius: "100px", padding: "6px 18px", marginBottom: "32px"
-        }}>
-          <span style={{ width: "7px", height: "7px", background: "#e8845a", borderRadius: "50%", display: "inline-block" }}></span>
-          <span style={{ fontSize: "13px", color: "#e8845a", fontWeight: 600 }}>Para estudiantes que se mudan a una ciudad nueva</span>
-        </div>
+      {/* ===== HERO ===== */}
+      <section className={styles.heroSection}>
 
-        <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-2px" }}>
-          Encuentra tu grupo.<br />
-          <span style={{ color: "#e8845a" }}>Antes de reservar.</span>
-        </h1>
-
-        <p style={{ fontSize: "18px", color: "#666", maxWidth: "520px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-          Deja el caos de WhatsApp. Forma tu grupo de piso con 
-estudiantes compatibles en tu ciudad de destino, antes de llegar.
-        </p>
-
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="/login" style={{
-            background: "#1e3a4a", color: "white", fontWeight: 700,
-            padding: "16px 36px", borderRadius: "100px", textDecoration: "none",
-            fontSize: "15px", boxShadow: "0 8px 32px rgba(30,58,74,0.25)"
-          }}>Buscar grupo →</a>
-          <a href="#como-funciona" style={{
-            background: "white", color: "#1e3a4a", fontWeight: 500,
-            padding: "16px 36px", borderRadius: "100px", textDecoration: "none",
-            fontSize: "15px", border: "1.5px solid #e8e8e8"
-          }}>Cómo funciona</a>
-        </div>
-
-        {/* Social proof */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginTop: "48px" }}>
-          <div style={{ display: "flex" }}>
-            {[["A","#e8845a"],["M","#5aacb8"],["S","#1e3a4a"],["K","#e8845a"],["R","#5aacb8"]].map(([l,c], i) => (
-              <div key={i} style={{
-                width: "36px", height: "36px", borderRadius: "50%", background: c,
-                border: "2px solid white", marginLeft: i > 0 ? "-8px" : "0",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: "white", fontSize: "12px", fontWeight: 700
-              }}>{l}</div>
-            ))}
+        {/* IZQUIERDA */}
+        <div>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "8px",
+            background: "rgba(232,132,90,0.1)",
+            border: "1px solid rgba(232,132,90,0.25)",
+            borderRadius: "100px", padding: "8px 18px",
+            fontSize: "13px", fontWeight: 600, color: "#e8845a",
+            marginBottom: "32px",
+          }}>
+            <span style={{
+              width: "7px", height: "7px", borderRadius: "50%",
+              background: "#e8845a", display: "inline-block",
+            }} />
+            Para estudiantes que se mudan a una ciudad nueva
           </div>
-          <span style={{ fontSize: "13px", color: "#999" }}>
-            <strong style={{ color: "#555" }}>+240 estudiantes</strong> ya han encontrado grupo este semestre
-          </span>
+
+          <h1 style={{
+            fontSize: "clamp(36px, 4vw, 64px)", fontWeight: 900,
+            lineHeight: 1.05, letterSpacing: "-2px", marginBottom: "24px",
+          }}>
+            Tu Erasmus empieza<br />
+            <span style={{ color: "#e8845a" }}>encontrando<br />tu gente.</span>
+          </h1>
+
+          <p style={{
+            fontSize: "clamp(15px, 1.5vw, 18px)", color: "#666",
+            lineHeight: 1.7, marginBottom: "12px", maxWidth: "480px",
+          }}>
+            Deja de mandar mensajes en grupos de WhatsApp infinitos.
+            Forma tu grupo de piso con estudiantes compatibles
+            <strong style={{ color: "#1e3a4a" }}> antes de llegar a tu destino.</strong>
+          </p>
+
+          <p style={{ fontSize: "13px", color: "#999", marginBottom: "40px" }}>
+            Erasmus · Máster · Intercambio · Cualquier estudiante que se muda 🌍
+          </p>
+
+          <div style={{
+            display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "48px",
+          }}>
+            <a href="/login" style={{
+              background: "linear-gradient(135deg, #1e3a4a, #2a5568)",
+              color: "white", fontWeight: 700, padding: "18px 40px",
+              borderRadius: "100px", textDecoration: "none", fontSize: "16px",
+              boxShadow: "0 8px 32px rgba(30,58,74,0.3)",
+            }}>
+              Buscar mi grupo →
+            </a>
+            <a href="#como-funciona" style={{
+              background: "white", color: "#1e3a4a", fontWeight: 500,
+              padding: "18px 40px", borderRadius: "100px",
+              textDecoration: "none", fontSize: "16px",
+              border: "1.5px solid #e8e8e8",
+            }}>
+              Cómo funciona
+            </a>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+            <div style={{ display: "flex" }}>
+              {[["A","#e8845a"],["M","#5aacb8"],["S","#1e3a4a"],["K","#e8845a"],["R","#5aacb8"]].map(([l,c],i) => (
+                <div key={i} style={{
+                  width: "36px", height: "36px", borderRadius: "50%",
+                  background: c, border: "3px solid white",
+                  marginLeft: i > 0 ? "-8px" : "0",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: "white", fontSize: "13px", fontWeight: 700,
+                }}>{l}</div>
+              ))}
+            </div>
+            <div>
+              <p style={{ fontSize: "13px", color: "#555", fontWeight: 600, margin: 0 }}>
+                +240 estudiantes ya encontraron grupo
+              </p>
+              <div style={{ display: "flex", gap: "2px", marginTop: "3px" }}>
+                {"★★★★★".split("").map((s,i) => (
+                  <span key={i} style={{ color: "#e8845a", fontSize: "13px" }}>{s}</span>
+                ))}
+                <span style={{ fontSize: "12px", color: "#999", marginLeft: "4px" }}>4.9/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* DERECHA — Imagen */}
+        <div className={styles.heroImg}>
+          <Image
+            src="/img-hero.jpg"
+            alt="Estudiantes encontrando grupo de piso con GoFlatt"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+            priority
+          />
+          <div className={styles.heroImgOverlay}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{
+                width: "40px", height: "40px", borderRadius: "50%",
+                background: "linear-gradient(135deg, #e8845a, #d46b3f)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "white", fontWeight: 700, fontSize: "16px", flexShrink: 0,
+              }}>S</div>
+              <div style={{ flex: 1 }}>
+                <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1e3a4a" }}>
+                  Sara encontró grupo en Milán
+                </p>
+                <p style={{ margin: 0, fontSize: "11px", color: "#999" }}>
+                  Hace 2 horas · 1 plaza libre
+                </p>
+              </div>
+              <div style={{
+                background: "rgba(46,204,113,0.1)",
+                border: "1px solid rgba(46,204,113,0.3)",
+                borderRadius: "100px", padding: "4px 10px",
+                fontSize: "11px", fontWeight: 700, color: "#27ae60",
+              }}>✓ Match</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FEATURES */}
-      <section style={{ padding: "80px 48px", maxWidth: "1100px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "56px" }}>
-          <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1px", marginBottom: "12px" }}>
-            Por fin, orden en el caos
-          </h2>
-          <p style={{ color: "#888", fontSize: "16px" }}>Todo lo que necesitas para encontrar a tus compañeros perfectos</p>
+      {/* ===== EL PROBLEMA ===== */}
+      <section className={styles.problemaSection}>
+        <div className={styles.problemaImg}>
+          <Image
+            src="/img-problema.jpg"
+            alt="Estudiantes buscando piso juntos"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to right, transparent, #1e3a4a)",
+          }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+
+        <div className={styles.problemaTexto}>
+          <p style={{
+            fontSize: "12px", fontWeight: 700, color: "#5aacb8",
+            letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px",
+          }}>¿Te suena esto?</p>
+
+          <h2 style={{
+            fontSize: "clamp(22px, 3vw, 38px)", fontWeight: 900,
+            color: "white", letterSpacing: "-1px",
+            lineHeight: 1.2, marginBottom: "40px",
+          }}>
+            "Grupo Erasmus Milán 🇮🇹<br />
+            <span style={{ color: "#e8845a" }}>busco piso para 4... o 3... o 2 🤦"</span>
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            {[
+              { icon: "😩", text: "200 mensajes sin respuesta en WhatsApp" },
+              { icon: "👻", text: "Perfiles falsos o gente que desaparece" },
+              { icon: "🤷", text: "Sin filtros — no sabes con quién vivirás" },
+              { icon: "⏰", text: "Los pisos se agotan mientras buscas grupo" },
+            ].map((p,i) => (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", gap: "16px",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "14px", padding: "14px 18px",
+              }}>
+                <span style={{ fontSize: "22px", flexShrink: 0 }}>{p.icon}</span>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", margin: 0, lineHeight: 1.5 }}>
+                  {p.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p style={{
+            fontSize: "17px", color: "white", fontWeight: 700, marginTop: "28px",
+          }}>
+            GoFlatt lo resuelve en menos de 5 minutos. 🚀
+          </p>
+        </div>
+      </section>
+
+      {/* ===== STATS ===== */}
+      <section style={{ padding: "80px 24px", background: "white" }}>
+        <div className={styles.statsGrid}>
           {[
-            { icon: "🎯", title: "Grupos reales", desc: "Ve quiénes ya están y cuántas plazas quedan libres. Sin perfiles fantasma.", color: "#fff5f0", border: "rgba(232,132,90,0.2)" },
-            { icon: "🤝", title: "Compatibilidad real", desc: "Filtra por presupuesto, horarios y estilo de vida antes de contactar a nadie.", color: "#f0f9fa", border: "rgba(90,172,184,0.2)" },
-            { icon: "✅", title: "Sin caos", desc: "Nada de grupos de Telegram eternos. Todo organizado, claro y en un solo sitio.", color: "#f0f4f7", border: "rgba(30,58,74,0.15)" },
-          ].map((f, i) => (
-            <div key={i} style={{
-              background: f.color, border: `1.5px solid ${f.border}`,
-              borderRadius: "20px", padding: "32px", transition: "transform 0.2s, box-shadow 0.2s"
-            }}>
-              <div style={{ fontSize: "36px", marginBottom: "16px" }}>{f.icon}</div>
-              <h3 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "10px" }}>{f.title}</h3>
-              <p style={{ color: "#777", fontSize: "14px", lineHeight: 1.6 }}>{f.desc}</p>
+            { num: "+240", label: "grupos formados", sub: "este semestre" },
+            { num: "6", label: "ciudades activas", sub: "Europa" },
+            { num: "4.9★", label: "valoración media", sub: "de los usuarios" },
+            { num: "<5min", label: "para encontrar grupo", sub: "de media" },
+          ].map((s,i) => (
+            <div key={i} style={{ padding: "16px" }}>
+              <div style={{
+                fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900,
+                color: "#e8845a", letterSpacing: "-1px", marginBottom: "8px",
+              }}>{s.num}</div>
+              <div style={{ fontSize: "15px", fontWeight: 700, color: "#1e3a4a", marginBottom: "4px" }}>
+                {s.label}
+              </div>
+              <div style={{ fontSize: "12px", color: "#999" }}>{s.sub}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CÓMO FUNCIONA */}
-      <section id="como-funciona" style={{ background: "#f8f9ff", padding: "80px 48px" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1px", marginBottom: "12px" }}>
-            Cómo funciona
+      {/* ===== FEATURES ===== */}
+      <section className={styles.featuresSection}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
+            <h2 style={{
+              fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900,
+              letterSpacing: "-1px", marginBottom: "16px", color: "#1e3a4a",
+            }}>
+              Por fin, orden en el caos
+            </h2>
+            <p style={{ color: "#888", fontSize: "17px", maxWidth: "500px", margin: "0 auto" }}>
+              Todo lo que necesitas para encontrar a tus compañeros perfectos
+            </p>
+          </div>
+
+          <div className={styles.featuresInner}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              {[
+                { icon: "👥", title: "Grupos reales, no perfiles sueltos", desc: "Ve grupos ya formados buscando 1, 2 o 3 personas más. Sin perfiles fantasma ni swipes infinitos.", tag: "Diferencial #1" },
+                { icon: "🎯", title: "Compatibilidad antes de hablar", desc: "Filtra por presupuesto, estilo de vida y ciudad. Solo contactas a quien realmente encaja contigo.", tag: "Diferencial #2" },
+                { icon: "⚡", title: "Sin registro largo, sin dramas", desc: "Entra con Google en 10 segundos. Perfil básico en 2 minutos. Grupos disponibles al instante.", tag: "Diferencial #3" },
+              ].map((f,i) => (
+                <div key={i} style={{
+                  background: "white", borderRadius: "20px", padding: "24px",
+                  border: "1.5px solid #eef0f8",
+                  display: "flex", gap: "16px", alignItems: "flex-start",
+                }}>
+                  <div style={{
+                    width: "48px", height: "48px", borderRadius: "14px",
+                    background: "rgba(232,132,90,0.1)", display: "flex",
+                    alignItems: "center", justifyContent: "center",
+                    fontSize: "22px", flexShrink: 0,
+                  }}>{f.icon}</div>
+                  <div>
+                    <div style={{
+                      fontSize: "10px", fontWeight: 700, color: "#e8845a",
+                      letterSpacing: "1px", textTransform: "uppercase", marginBottom: "6px",
+                    }}>{f.tag}</div>
+                    <h3 style={{
+                      fontSize: "16px", fontWeight: 800, color: "#1e3a4a",
+                      marginBottom: "8px",
+                    }}>{f.title}</h3>
+                    <p style={{ color: "#888", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
+                      {f.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.featuresImg}>
+              <Image
+                src="/img-features.jpg"
+                alt="Estudiantes usando GoFlatt"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CÓMO FUNCIONA ===== */}
+      <section id="como-funciona" style={{ padding: "100px 24px", background: "white" }}>
+        <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{
+            fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900,
+            letterSpacing: "-1px", marginBottom: "16px", color: "#1e3a4a",
+          }}>
+            En 4 pasos, tienes grupo
           </h2>
-          <p style={{ color: "#888", fontSize: "16px", marginBottom: "56px" }}>En menos de 5 minutos tienes tu grupo</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left" }}>
+          <p style={{ color: "#888", fontSize: "16px", marginBottom: "56px" }}>
+            Sin complicaciones. Sin registro eterno.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px", textAlign: "left" }}>
             {[
-              { step: "01", title: "Elige tu destino y semestre", desc: "Selecciona la ciudad donde vas de Erasmus y cuándo llegas. Filtramos todo automáticamente." },
-              { step: "02", title: "Crea tu perfil en 2 minutos", desc: "Universidad, presupuesto, estilo de vida. Lo justo para que otros sepan con quién van a vivir." },
-              { step: "03", title: "Explora grupos o crea el tuyo", desc: "Ve los grupos incompletos en tu destino. Solicita unirte o crea tu propio grupo desde cero." },
-              { step: "04", title: "Conecta y forma tu grupo", desc: "Cuando hay match, os ponemos en contacto. A partir de ahí, sois vosotros los que decidís." },
-            ].map((s, i) => (
+              { step: "01", emoji: "🌍", title: "Elige tu ciudad y cuándo llegas", desc: "Milán, Lisboa, Berlín, Ámsterdam... Selecciona tu destino y tu semestre." },
+              { step: "02", emoji: "👤", title: "Crea tu perfil en 2 minutos", desc: "Solo lo esencial: presupuesto, estilo de vida, universidad. Sin formularios eternos." },
+              { step: "03", emoji: "🔍", title: "Explora grupos o crea el tuyo", desc: "Ve los grupos que buscan a alguien como tú. O publica el tuyo y recibe solicitudes." },
+              { step: "04", emoji: "🎉", title: "Conecta y empieza la aventura", desc: "Cuando hay match, os ponemos en contacto. A partir de ahí, sois vosotros." },
+            ].map((s,i) => (
               <div key={i} style={{
-                display: "flex", gap: "24px", alignItems: "flex-start",
-                background: "white", borderRadius: "16px", padding: "24px 28px",
-                boxShadow: "0 2px 16px rgba(0,0,0,0.05)"
+                display: "flex", gap: "20px", alignItems: "flex-start",
+                background: "#f8f9ff", borderRadius: "20px",
+                padding: "24px 28px", border: "1.5px solid #eef0f8",
               }}>
                 <div style={{
-                  minWidth: "48px", height: "48px", background: "#1e3a4a",
-                  borderRadius: "14px", display: "flex", alignItems: "center",
-                  justifyContent: "center", color: "white", fontWeight: 800, fontSize: "14px"
+                  minWidth: "52px", height: "52px",
+                  background: "linear-gradient(135deg, #1e3a4a, #2a5568)",
+                  borderRadius: "16px", display: "flex",
+                  alignItems: "center", justifyContent: "center",
+                  color: "white", fontWeight: 900, fontSize: "13px", flexShrink: 0,
                 }}>{s.step}</div>
                 <div>
-                  <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "6px" }}>{s.title}</h4>
-                  <p style={{ color: "#888", fontSize: "14px", lineHeight: 1.6 }}>{s.desc}</p>
+                  <div style={{ fontSize: "18px", marginBottom: "6px" }}>{s.emoji}</div>
+                  <h4 style={{
+                    fontSize: "16px", fontWeight: 800, color: "#1e3a4a", marginBottom: "6px",
+                  }}>{s.title}</h4>
+                  <p style={{ color: "#888", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
+                    {s.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -135,59 +334,117 @@ estudiantes compatibles en tu ciudad de destino, antes de llegar.
         </div>
       </section>
 
-      {/* CIUDADES */}
-      <section id="ciudades" style={{ padding: "80px 48px", maxWidth: "1100px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1px", marginBottom: "12px" }}>
-            Ciudades disponibles
-          </h2>
-          <p style={{ color: "#888", fontSize: "16px" }}>Disponible en las ciudades con más estudiantes internacionales</p>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px" }}>
-          {[
-            { flag: "🇮🇹", city: "Milán", groups: "34 grupos" },
-            { flag: "🇵🇹", city: "Lisboa", groups: "28 grupos" },
-            { flag: "🇩🇪", city: "Berlín", groups: "21 grupos" },
-            { flag: "🇳🇱", city: "Ámsterdam", groups: "19 grupos" },
-            { flag: "🇫🇷", city: "París", groups: "17 grupos" },
-            { flag: "🇨🇿", city: "Praga", groups: "15 grupos" },
-          ].map((c, i) => (
-            <div key={i} style={{
-              background: "#f8f9ff", border: "1.5px solid #eef0f8",
-              borderRadius: "16px", padding: "24px 16px", textAlign: "center",
-              cursor: "pointer", transition: "all 0.2s"
+      {/* ===== CIUDADES ===== */}
+      <section id="ciudades" style={{ padding: "100px 24px", background: "#f8f9ff" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+            <h2 style={{
+              fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900,
+              letterSpacing: "-1px", marginBottom: "16px", color: "#1e3a4a",
             }}>
-              <div style={{ fontSize: "32px", marginBottom: "10px" }}>{c.flag}</div>
-              <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: "4px" }}>{c.city}</div>
-              <div style={{ fontSize: "12px", color: "#e8845a", fontWeight: 600 }}>{c.groups}</div>
-            </div>
-          ))}
+              Ya activos en 6 ciudades
+            </h2>
+            <p style={{ color: "#888", fontSize: "16px" }}>
+              Donde más estudiantes internacionales se concentran cada semestre
+            </p>
+          </div>
+
+          <div className={styles.ciudadesGrid}>
+            {[
+              { flag: "🇮🇹", city: "Milán", groups: "34 grupos", hot: true },
+              { flag: "🇵🇹", city: "Lisboa", groups: "28 grupos", hot: true },
+              { flag: "🇩🇪", city: "Berlín", groups: "21 grupos", hot: false },
+              { flag: "🇳🇱", city: "Ámsterdam", groups: "19 grupos", hot: false },
+              { flag: "🇫🇷", city: "París", groups: "17 grupos", hot: false },
+              { flag: "🇨🇿", city: "Praga", groups: "15 grupos", hot: false },
+            ].map((c,i) => (
+              <a key={i} href="/login" style={{
+                background: "white", border: "1.5px solid #eef0f8",
+                borderRadius: "20px", padding: "24px 16px",
+                textAlign: "center", textDecoration: "none",
+                display: "block", position: "relative", overflow: "hidden",
+              }}>
+                {c.hot && (
+                  <div style={{
+                    position: "absolute", top: "10px", right: "10px",
+                    background: "#e8845a", color: "white",
+                    fontSize: "9px", fontWeight: 700,
+                    padding: "2px 7px", borderRadius: "100px",
+                  }}>HOT</div>
+                )}
+                <div style={{ fontSize: "32px", marginBottom: "10px" }}>{c.flag}</div>
+                <div style={{ fontWeight: 800, fontSize: "14px", color: "#1e3a4a", marginBottom: "4px" }}>
+                  {c.city}
+                </div>
+                <div style={{ fontSize: "12px", color: "#e8845a", fontWeight: 700 }}>
+                  {c.groups}
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
-     {/* TESTIMONIOS */}
-<Testimonios />
+      {/* ===== TESTIMONIOS ===== */}
+      <Testimonios />
 
-      {/* CTA FINAL */}
+      {/* ===== CTA FINAL ===== */}
       <section style={{
-        background: "#1e3a4a", padding: "80px 48px", textAlign: "center"
+        position: "relative", overflow: "hidden",
+        minHeight: "500px", display: "flex", alignItems: "center",
       }}>
-        <h2 style={{ fontSize: "40px", fontWeight: 800, color: "white", letterSpacing: "-1px", marginBottom: "16px" }}>
-          ¿Listo para encontrar<br />tu grupo ideal?
-        </h2>
-        <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "16px", marginBottom: "36px" }}>
-          Gratis. Sin registro complicado. En menos de 5 minutos.
-        </p>
-        <a href="/login" style={{
-          background: "#e8845a", color: "white", fontWeight: 700,
-          padding: "18px 48px", borderRadius: "100px", textDecoration: "none",
-          fontSize: "16px", boxShadow: "0 8px 32px rgba(232,132,90,0.4)"
-        }}>Empezar gratis →</a>
+        <Image
+          src="/img-ciudad.jpg"
+          alt="Estudiantes en Europa con GoFlatt"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(30,58,74,0.92), rgba(30,58,74,0.75))",
+        }} />
+        <div style={{
+          position: "relative", zIndex: 1,
+          width: "100%", textAlign: "center", padding: "80px 24px",
+        }}>
+          <p style={{
+            fontSize: "12px", fontWeight: 700, color: "#5aacb8",
+            letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px",
+          }}>
+            Tu próxima aventura empieza aquí
+          </p>
+          <h2 style={{
+            fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900,
+            color: "white", letterSpacing: "-2px",
+            lineHeight: 1.1, marginBottom: "20px",
+          }}>
+            ¿Listo para encontrar<br />
+            <span style={{ color: "#e8845a" }}>a tu gente?</span>
+          </h2>
+          <p style={{
+            color: "rgba(255,255,255,0.7)", fontSize: "17px",
+            marginBottom: "40px", maxWidth: "400px", margin: "0 auto 40px",
+          }}>
+            Gratis. Sin tarjeta. En menos de 5 minutos.
+          </p>
+          <a href="/login" style={{
+            display: "inline-block",
+            background: "linear-gradient(135deg, #e8845a, #d46b3f)",
+            color: "white", fontWeight: 700, padding: "20px 52px",
+            borderRadius: "100px", textDecoration: "none", fontSize: "17px",
+            boxShadow: "0 8px 40px rgba(232,132,90,0.45)",
+          }}>
+            Empezar gratis →
+          </a>
+          <p style={{
+            color: "rgba(255,255,255,0.4)", fontSize: "13px", marginTop: "20px",
+          }}>
+            +240 estudiantes ya están dentro 🎓
+          </p>
+        </div>
       </section>
 
-      {/* FOOTER */}
       <Footer />
-
     </main>
   );
 }

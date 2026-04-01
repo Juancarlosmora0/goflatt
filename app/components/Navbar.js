@@ -24,17 +24,23 @@ export default function Navbar() {
 
   return (
     <>
- <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
-  <a href="/">
-    <Image
-      src="/logo.png"
-      alt="GoFlatt"
-      width={140}
-      height={45}
-      className={styles.logo}
-      style={{ objectFit: "contain", objectPosition: "left center" }}
-    />
-  </a>
+      <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
+
+        {/* LOGO */}
+        <a href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+          <Image
+            src="/logo.png"
+            alt="GoFlatt"
+            width={240}
+            height={72}
+            priority
+            style={{
+              height: "40px",
+              width: "auto",
+              objectFit: "contain",
+            }}
+          />
+        </a>
 
         {/* Links — solo desktop */}
         <div className={styles.links}>
@@ -45,7 +51,7 @@ export default function Navbar() {
 
         {/* Acciones — solo desktop */}
         <div className={styles.actions}>
-          <a href="#" className={styles.loginBtn}>Iniciar sesión</a>
+          <a href="/login" className={styles.loginBtn}>Iniciar sesión</a>
           <a href="/login" className={styles.ctaBtn}>Empezar gratis →</a>
         </div>
 
@@ -73,10 +79,10 @@ export default function Navbar() {
           Testimonios
         </a>
         <div className={styles.mobileDivider} />
-        <a href="#" className={styles.mobileLogin} onClick={() => setMenuOpen(false)}>
+        <a href="/login" className={styles.mobileLogin} onClick={() => setMenuOpen(false)}>
           Iniciar sesión
         </a>
-        <a href="/onboarding" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>
+        <a href="/login" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>
           Empezar gratis →
         </a>
       </div>
@@ -89,7 +95,7 @@ export default function Navbar() {
             position: "fixed", inset: 0,
             background: "rgba(0,0,0,0.2)",
             zIndex: 998,
-            backdropFilter: "blur(2px)"
+            backdropFilter: "blur(2px)",
           }}
         />
       )}

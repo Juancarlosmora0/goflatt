@@ -1,0 +1,160 @@
+/* ===== HERO ===== */
+.heroSection {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #f8f9ff 0%, #fff5f0 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 100px 80px 80px;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroImg {
+  position: relative;
+  height: 600px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.15);
+}
+
+.heroImgOverlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 16px 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+/* ===== PROBLEMA ===== */
+.problemaSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.problemaImg {
+  position: relative;
+  min-height: 500px;
+}
+
+.problemaTexto {
+  background: #1e3a4a;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== FEATURES ===== */
+.featuresSection {
+  padding: 100px 80px;
+  background: #f8f9ff;
+}
+
+.featuresInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.featuresImg {
+  position: relative;
+  height: 520px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+}
+
+/* ===== STATS ===== */
+.statsGrid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+/* ===== CIUDADES ===== */
+.ciudadesGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    padding: 100px 24px 60px;
+    gap: 40px;
+  }
+
+  .heroImg {
+    height: 360px;
+    border-radius: 24px;
+  }
+
+  .problemaSection {
+    grid-template-columns: 1fr;
+  }
+
+  .problemaImg {
+    min-height: 280px;
+  }
+
+  .problemaTexto {
+    padding: 48px 24px;
+  }
+
+  .featuresSection {
+    padding: 60px 24px;
+  }
+
+  .featuresInner {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresImg {
+    height: 280px;
+    order: -1;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ciudadesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 90px 16px 48px;
+  }
+
+  .heroImg {
+    height: 300px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ciudadesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

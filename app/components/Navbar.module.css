@@ -7,38 +7,42 @@
   width: 90%;
   max-width: 1100px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  padding: 10px 10px 10px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+  padding: 8px 8px 8px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 64px;
 }
 
 .navScrolled {
-  width: 80%;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(30, 58, 74, 0.1);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  width: 82%;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(30, 58, 74, 0.08);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.1);
+  top: 12px;
 }
 
+/* ===== LOGO ===== */
 .logo {
-  height: 45px;
-  width: 140px;
+  height: 40px;
+  width: auto;
   object-fit: contain;
   object-position: left center;
+  display: block;
 }
 
 /* ===== LINKS CENTRO ===== */
 .links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -47,14 +51,15 @@
 .link {
   font-size: 13px;
   font-weight: 500;
-  color: #444;
-  padding: 8px 16px;
+  color: #555;
+  padding: 8px 18px;
   border-radius: 100px;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .link:hover {
-  background: rgba(30, 58, 74, 0.06);
+  background: rgba(30, 58, 74, 0.07);
   color: #1e3a4a;
 }
 
@@ -62,36 +67,38 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .loginBtn {
   font-size: 13px;
   font-weight: 500;
   color: #1e3a4a;
-  padding: 9px 18px;
+  padding: 10px 20px;
   border-radius: 100px;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .loginBtn:hover {
-  background: rgba(30, 58, 74, 0.06);
+  background: rgba(30, 58, 74, 0.07);
 }
 
 .ctaBtn {
   font-size: 13px;
   font-weight: 700;
   color: white;
-  padding: 10px 22px;
+  padding: 12px 24px;
   border-radius: 100px;
   background: linear-gradient(135deg, #e8845a, #d46b3f);
-  box-shadow: 0 4px 16px rgba(232, 132, 90, 0.35);
+  box-shadow: 0 4px 16px rgba(232, 132, 90, 0.3);
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .ctaBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(232, 132, 90, 0.5);
+  box-shadow: 0 8px 28px rgba(232, 132, 90, 0.45);
 }
 
 /* ===== HAMBURGER ===== */
@@ -100,9 +107,15 @@
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   background: none;
   border: none;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.hamburger:hover {
+  background: rgba(30, 58, 74, 0.06);
 }
 
 .hamburger span {
@@ -111,7 +124,7 @@
   height: 2px;
   background: #1e3a4a;
   border-radius: 4px;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamburgerOpen span:nth-child(1) {
@@ -120,6 +133,7 @@
 
 .hamburgerOpen span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .hamburgerOpen span:nth-child(3) {
@@ -129,22 +143,22 @@
 /* ===== MENÚ MÓVIL ===== */
 .mobileMenu {
   position: fixed;
-  top: 80px;
+  top: 84px;
   left: 16px;
   right: 16px;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.99);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-radius: 24px;
-  border: 1px solid rgba(30, 58, 74, 0.1);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  padding: 16px;
+  border: 1px solid rgba(30, 58, 74, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  padding: 20px 16px;
   z-index: 999;
   flex-direction: column;
   gap: 4px;
   display: none;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-12px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -169,7 +183,7 @@
 
 .mobileDivider {
   height: 1px;
-  background: rgba(30, 58, 74, 0.08);
+  background: rgba(30, 58, 74, 0.07);
   margin: 8px 0;
 }
 
@@ -182,6 +196,10 @@
   transition: all 0.2s;
 }
 
+.mobileLogin:hover {
+  background: rgba(30, 58, 74, 0.05);
+}
+
 .mobileCta {
   font-size: 15px;
   font-weight: 700;
@@ -190,8 +208,14 @@
   border-radius: 14px;
   background: linear-gradient(135deg, #e8845a, #d46b3f);
   text-align: center;
-  box-shadow: 0 4px 16px rgba(232, 132, 90, 0.3);
-  margin-top: 4px;
+  box-shadow: 0 6px 20px rgba(232, 132, 90, 0.3);
+  margin-top: 6px;
+  transition: all 0.2s;
+}
+
+.mobileCta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(232, 132, 90, 0.4);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -199,8 +223,9 @@
   .nav {
     width: calc(100% - 32px);
     border-radius: 20px;
-    padding: 12px 16px;
+    padding: 10px 16px;
     top: 12px;
+    min-height: 56px;
   }
 
   .navScrolled {
