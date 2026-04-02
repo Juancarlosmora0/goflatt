@@ -92,8 +92,8 @@ export default function Footer() {
           <a href="#" className={styles.colLink}>Sobre nosotros</a>
           <a href="#" className={styles.colLink}>Blog</a>
           <a href="#" className={styles.colLink}>Contacto</a>
-          <a href="#" className={styles.colLink}>Privacidad</a>
-          <a href="#" className={styles.colLink}>Términos</a>
+          <a href="/privacy" className={styles.colLink}>Privacidad</a>
+          <a href="/terms" className={styles.colLink}>Términos</a>
         </div>
 
       </div>
@@ -117,8 +117,8 @@ export default function Footer() {
         </div>
 
         <div className={styles.legalLinks}>
-          <a href="#" className={styles.legalLink}>Privacidad</a>
-          <a href="#" className={styles.legalLink}>Términos</a>
+          <a href="/privacy" className={styles.legalLink}>Privacidad</a>
+          <a href="/terms" className={styles.legalLink}>Términos</a>
           <a href="#" className={styles.legalLink}>Cookies</a>
         </div>
       </div>
