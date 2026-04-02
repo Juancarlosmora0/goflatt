@@ -18,7 +18,14 @@ export default function Home() {
       color: "#1e3a4a",
       overflowX: "hidden",
     }}>
-      <Navbar />
+     <Navbar />
+      <h1 style={{
+        position: "absolute", width: "1px", height: "1px",
+        padding: 0, margin: "-1px", overflow: "hidden",
+        clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0,
+      }}>
+        GoFlatt — Encuentra tu grupo de piso antes de llegar
+      </h1>
 
       {/* ===== HERO ===== */}
       <section className={styles.heroSection}>
