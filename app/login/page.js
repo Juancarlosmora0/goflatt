@@ -214,9 +214,9 @@ export default function Login() {
           {/* Legal */}
           <p className={styles.legal}>
             Al continuar aceptas nuestros{" "}
-            <a href="#" className={styles.legalLink}>Términos</a>
+            <a href="/terms" className={styles.legalLink}>Términos</a>
             {" "}y{" "}
-            <a href="#" className={styles.legalLink}>Privacidad</a>
+            <a href="/privacy" className={styles.legalLink}>Privacidad</a>
           </p>
 
         </div>
