@@ -55,7 +55,7 @@ export async function POST(request) {
               </p>
             </div>
 
-            <a href="http://localhost:3000/feed" style="display:inline-block;background:linear-gradient(135deg,#e8845a,#d46b3f);color:white;font-weight:700;font-size:15px;padding:16px 36px;border-radius:100px;text-decoration:none;box-shadow:0 6px 24px rgba(232,132,90,0.3);">
+            <a href="https://goflatt.com/feed" style="display:inline-block;background:linear-gradient(135deg,#e8845a,#d46b3f);color:white;font-weight:700;font-size:15px;padding:16px 36px;border-radius:100px;text-decoration:none;box-shadow:0 6px 24px rgba(232,132,90,0.3);">
               Ir a GoFlatt →
             </a>
 

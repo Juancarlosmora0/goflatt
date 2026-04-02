@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `Compañeros de piso Erasmus en ${ciudad.nombre} — GoFlatt`,
       description: `Encuentra tu grupo de piso en ${ciudad.nombre} antes de llegar. ${ciudad.grupos} grupos activos ahora mismo.`,
-      url: `https://goflatt.vercel.app/ciudad/${ciudad.slug}`,
+      url: `https://goflatt.com/ciudad/${ciudad.slug}`,
     },
   };
 }

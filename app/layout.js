@@ -25,14 +25,14 @@ export const metadata = {
   ],
   authors: [{ name: "GoFlatt" }],
   creator: "GoFlatt",
-  metadataBase: new URL("https://goflatt.vercel.app"),
+  metadataBase: new URL("https://goflatt.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://goflatt.vercel.app",
+    url: "https://goflatt.com",
     siteName: "GoFlatt",
     title: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
     description:
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "WebApplication",
               name: "GoFlatt",
-              url: "https://goflatt.vercel.app",
+              url: "https://goflatt.com",
               description:
                 "Plataforma para que estudiantes de intercambio encuentren compañeros de piso compatibles antes de llegar a su destino.",
               applicationCategory: "SocialNetworkingApplication",
