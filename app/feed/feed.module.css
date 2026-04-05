@@ -16,10 +16,10 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 249, 255, 0.95);
+  background: rgba(248, 249, 255, 0.97);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid #eef0f8;
-  padding: 14px 16px;
+  padding: 12px 16px;
 }
 
 .topbarInner {
@@ -27,16 +27,10 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 
 .topbarLogo {
-  font-size: 20px;
-  font-weight: 800;
-  color: #1e3a4a;
-  letter-spacing: -1px;
-  cursor: pointer;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -49,17 +43,17 @@
   background: white;
   border: 1.5px solid #eef0f8;
   border-radius: 100px;
-  padding: 9px 16px;
-  transition: border-color 0.2s;
+  padding: 9px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.searchBar:focus-within {
+.searchBarFocused {
   border-color: #e8845a;
+  box-shadow: 0 0 0 3px rgba(232, 132, 90, 0.1);
 }
 
 .searchIcon {
-  font-size: 14px;
-  color: #bbb;
+  font-size: 13px;
   flex-shrink: 0;
 }
 
@@ -73,7 +67,24 @@
   width: 100%;
 }
 
-.searchInput::placeholder { color: #bbb; }
+.searchInput::placeholder {
+  color: #bbb;
+}
+
+.searchClear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbb;
+  font-size: 12px;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.searchClear:hover {
+  color: #888;
+}
 
 .notifBtn {
   width: 38px;
@@ -85,50 +96,90 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
   flex-shrink: 0;
   transition: all 0.2s;
 }
 
 .notifBtn:hover {
-  border-color: rgba(232, 132, 90, 0.4);
+  border-color: #e8845a;
+}
+
+/* ===== BIENVENIDA ===== */
+.bienvenida {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1e3a4a 0%, #2d5a73 100%);
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin: 16px 0 4px;
+}
+
+.bienvenidaLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bienvenidaAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(232, 132, 90, 0.3);
+  border: 2px solid rgba(232, 132, 90, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.bienvenidaSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 2px;
+}
+
+.bienvenidaNombre {
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.btnCrearGrupo {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btnCrearGrupo:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 /* ===== HEADER ===== */
 .header {
-  padding: 20px 0 8px;
+  padding: 20px 0 4px;
 }
-
-.locationRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.location {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #999;
-  background: white;
-  border: 1px solid #eef0f8;
-  border-radius: 100px;
-  padding: 5px 12px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.location:hover { border-color: rgba(232, 132, 90, 0.4); }
 
 .title {
-  font-size: clamp(20px, 4vw, 26px);
-  font-weight: 800;
+  font-size: clamp(22px, 4vw, 28px);
+  font-weight: 900;
   color: #1e3a4a;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.8px;
   margin-bottom: 4px;
-  white-space: nowrap;
 }
 
 .subtitle {
@@ -138,7 +189,7 @@
 
 .subtitleHighlight {
   color: #e8845a;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ===== FILTERS ===== */
@@ -146,21 +197,23 @@
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 14px 0;
+  padding: 12px 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-.filterScroll::-webkit-scrollbar { display: none; }
+.filterScroll::-webkit-scrollbar {
+  display: none;
+}
 
 .filterChip {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: white;
   border: 1.5px solid #eef0f8;
   border-radius: 100px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
@@ -179,10 +232,61 @@
   background: rgba(232, 132, 90, 0.08);
   border-color: #e8845a;
   color: #e8845a;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* ===== CARDS ===== */
+.filterCount {
+  background: #f0f0f0;
+  border-radius: 100px;
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #999;
+}
+
+.filterCountActive {
+  background: rgba(232, 132, 90, 0.15);
+  color: #e8845a;
+}
+
+.searchResultado {
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 8px;
+}
+
+/* ===== LOADING ===== */
+.loadingWrap {
+  text-align: center;
+  padding: 64px 24px;
+  color: #bbb;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #e8845a;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ===== CARD ===== */
 .card {
   background: white;
   border: 1.5px solid #eef0f8;
@@ -196,88 +300,89 @@
 }
 
 .card:hover {
-  border-color: rgba(232, 132, 90, 0.3);
+  border-color: rgba(232, 132, 90, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
 }
 
-.cardAccent {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #e8845a, #5aacb8);
-}
-
-.cardAccentGreen {
-  background: linear-gradient(90deg, #2ecc71, #5aacb8);
-}
-
-.cardAccentAmber {
-  background: linear-gradient(90deg, #f39c12, #e8845a);
-}
-
-/* ===== CARD TOP ===== */
-.cardTop {
+/* CARD HEADER */
+.cardHeader {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-.avatarStack {
+.cardHeaderLeft {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2.5px solid white;
+.avatarMain {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  font-size: 18px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.cardCreador {
   font-size: 14px;
   font-weight: 700;
-  margin-right: -8px;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #1e3a4a;
 }
 
-.avatarEmpty {
-  background: #f5f5f5;
-  border: 2px dashed #ddd;
-  color: #ccc;
-  font-size: 16px;
-  font-weight: 300;
+.cardUni {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
 }
 
-.cardRight {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+.cardTime {
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 2px;
 }
 
-.badge {
+.cardHeaderRight {
   display: flex;
   align-items: center;
-  gap: 5px;
-  border-radius: 100px;
-  padding: 5px 12px;
-  font-size: 11px;
-  font-weight: 700;
+  gap: 6px;
   flex-shrink: 0;
 }
 
-.badgeGreen {
+.badgeNew {
+  background: linear-gradient(135deg, #e8845a, #d46b3f);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+
+.badgePlazas {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 100px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badgePlazasGreen {
   background: rgba(46, 204, 113, 0.1);
   border: 1px solid rgba(46, 204, 113, 0.25);
   color: #27ae60;
 }
 
-.badgeAmber {
+.badgePlazasAmber {
   background: rgba(243, 156, 18, 0.1);
   border: 1px solid rgba(243, 156, 18, 0.25);
   color: #e67e22;
@@ -291,54 +396,140 @@
   animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.newBadge {
-  font-size: 10px;
-  font-weight: 700;
-  color: white;
-  background: #e8845a;
-  padding: 2px 8px;
-  border-radius: 100px;
-}
-
-/* ===== CARD CONTENT ===== */
-.cardTitle {
-  font-size: 16px;
-  font-weight: 700;
-  color: #1e3a4a;
-  margin-bottom: 8px;
-  letter-spacing: -0.3px;
-}
-
-.cardMeta {
+/* CARD HERO — Ciudad + Precio */
+.cardHero {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9ff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.cardCiudad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardCiudadEmoji {
+  font-size: 22px;
+}
+
+.cardCiudadNombre {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e3a4a;
+  letter-spacing: -0.5px;
+}
+
+.cardZona {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+}
+
+.cardPrecio {
+  font-size: 20px;
+  font-weight: 900;
+  color: #e8845a;
+  letter-spacing: -0.5px;
+}
+
+.cardPrecioSub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #bbb;
+  margin-left: 2px;
+}
+
+/* GRUPO VISUAL */
+.grupoVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 12px;
 }
 
-.metaItem {
+.grupoVisualInfo {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  color: #888;
+  gap: 10px;
 }
 
-.metaIcon {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
+.avatarRow {
+  display: flex;
+  align-items: center;
+}
+
+.avatarSmall {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: -6px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+.avatarEmptySmall {
+  background: #f0f0f0;
+  border: 2px dashed #ddd;
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.grupoVisualText {
+  font-size: 12px;
+  color: #888;
+  margin-left: 10px;
+}
+
+.perfilBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.perfilChicas {
+  background: rgba(255, 105, 180, 0.1);
+  color: #e91e8c;
+}
+
+.perfilChicos {
+  background: rgba(30, 58, 74, 0.08);
+  color: #1e3a4a;
+}
+
+.perfilMixto {
+  background: rgba(90, 172, 184, 0.1);
+  color: #5aacb8;
+}
+
+/* BIO */
+.cardBio {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 12px;
+  padding: 0 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* TAGS */
 .cardTags {
   display: flex;
   gap: 6px;
@@ -348,6 +539,7 @@
 
 .tag {
   background: #f8f9ff;
+  border: 1px solid #eef0f8;
   border-radius: 8px;
   padding: 4px 10px;
   font-size: 11px;
@@ -355,8 +547,22 @@
   font-weight: 500;
 }
 
-/* ===== CARD BOTTOM ===== */
-.cardBottom {
+.tagPiso {
+  background: rgba(46, 204, 113, 0.08);
+  border-color: rgba(46, 204, 113, 0.2);
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.tagVisitando {
+  background: rgba(90, 172, 184, 0.08);
+  border-color: rgba(90, 172, 184, 0.2);
+  color: #5aacb8;
+  font-weight: 600;
+}
+
+/* CARD FOOTER */
+.cardFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -364,34 +570,25 @@
   border-top: 1px solid #f5f5f5;
 }
 
-.spotsInfo {
+.semestre {
   font-size: 12px;
-  color: #999;
-  line-height: 1.4;
+  color: #bbb;
 }
 
-.spotsInfo strong {
-  color: #1e3a4a;
-  font-weight: 700;
-  display: block;
-  font-size: 13px;
-}
-
-.btnJoin {
-  background: linear-gradient(135deg, #1e3a4a, #2a5568);
+.btnVer {
+  background: linear-gradient(135deg, #1e3a4a, #2d5a73);
   color: white;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   font-family: inherit;
   transition: all 0.2s;
-  white-space: nowrap;
 }
 
-.btnJoin:hover {
+.btnVer:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(30, 58, 74, 0.3);
 }
@@ -399,7 +596,9 @@
 /* ===== BOTTOM NAV ===== */
 .bottomNav {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   border-top: 1px solid #eef0f8;
@@ -423,9 +622,13 @@
   padding: 4px 0;
 }
 
-.bnActive { color: #e8845a; }
+.bnActive {
+  color: #e8845a;
+}
 
-.bnIcon { font-size: 22px; }
+.bnIcon {
+  font-size: 20px;
+}
 
 .bnLabel {
   font-size: 10px;
@@ -443,35 +646,33 @@
   border: none;
   background: none;
   font-family: inherit;
-  transition: all 0.2s;
   padding: 4px 0;
 }
 
 .bnCreateIcon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 14px;
   background: linear-gradient(135deg, #e8845a, #d46b3f);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 300;
   box-shadow: 0 4px 16px rgba(232, 132, 90, 0.4);
   transition: all 0.2s;
-  margin-top: -16px;
+  margin-top: -18px;
 }
 
 .bnCreateBtn:hover .bnCreateIcon {
-  transform: scale(1.1);
+  transform: scale(1.08);
   box-shadow: 0 6px 24px rgba(232, 132, 90, 0.5);
 }
 
 .bnCreateLabel {
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.3px;
   color: #e8845a;
 }
 
@@ -481,10 +682,13 @@
   padding: 64px 24px;
 }
 
-.emptyIcon { font-size: 48px; margin-bottom: 16px; }
+.emptyIcon {
+  font-size: 52px;
+  margin-bottom: 16px;
+}
 
 .emptyTitle {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   color: #1e3a4a;
   margin-bottom: 8px;
@@ -494,8 +698,11 @@
 .emptySubtitle {
   font-size: 14px;
   color: #999;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 28px;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btnCreate {
@@ -503,7 +710,7 @@
   color: white;
   border: none;
   border-radius: 14px;
-  padding: 14px 28px;
+  padding: 14px 32px;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
@@ -520,7 +727,8 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   .container { padding: 0 12px 100px; }
-  .title { font-size: 20px; }
-  .cardMeta { gap: 10px; }
-  .topbar { padding: 12px; }
+  .cardHero { padding: 12px 14px; }
+  .cardCiudadNombre { font-size: 16px; }
+  .cardPrecio { font-size: 17px; }
+  .bienvenida { padding: 16px; }
 }
