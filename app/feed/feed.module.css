@@ -732,3 +732,124 @@
   .cardPrecio { font-size: 17px; }
   .bienvenida { padding: 16px; }
 }
+/* ===== MAIN TABS ===== */
+.mainTabs {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0 4px;
+  background: #f0f2f8;
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.mainTab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: #999;
+  background: none;
+  transition: all 0.2s;
+}
+
+.mainTabActive {
+  background: white;
+  color: #1e3a4a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.mainTabCount {
+  background: rgba(232,132,90,0.15);
+  color: #e8845a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 100px;
+}
+
+/* ===== SCORE BANNER ===== */
+.scoreBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.scoreLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.scoreEmoji { font-size: 16px; }
+
+.scoreLabel {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.scoreBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.scoreBarFill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.6s ease;
+}
+
+.scoreNum {
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ===== PARA TI ===== */
+.paraTiHeader {
+  margin-bottom: 8px;
+}
+
+.paraTiDesc {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+.paraTiEmpty {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.btnVerTodos {
+  background: white;
+  border: 2px solid #eef0f8;
+  border-radius: 14px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3a4a;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btnVerTodos:hover {
+  border-color: #e8845a;
+  color: #e8845a;
+}
