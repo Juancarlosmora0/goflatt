@@ -21,33 +21,41 @@ export async function GET(request) {
         cookies: {
           getAll() { return cookieStore.getAll(); },
           setAll(cookiesToSet) {
-            cookiesToSet.forEach(({ name, value, options }) => {
-              cookieStore.set(name, value, options);
-            });
+            try {
+              cookiesToSet.forEach(({ name, value, options }) => {
+                cookieStore.set(name, value, options);
+              });
+            } catch (e) {
+              // ignorar errores de cookies en middleware
+            }
           },
         },
       }
     );
 
-    const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+    const { data: sessionData, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
 
-    if (!exchangeError) {
-      // Verificar si el usuario ya tiene perfil
-      const { data: { user } } = await supabase.auth.getUser();
-      
-      if (user) {
+    if (exchangeError) {
+      console.error("Error exchanging code:", exchangeError);
+      return NextResponse.redirect(`${origin}/login?error=auth`);
+    }
+
+    if (sessionData?.user) {
+      try {
         const { data: perfil } = await supabase
           .from("perfiles")
           .select("id")
-          .eq("id", user.id)
+          .eq("id", sessionData.user.id)
           .single();
 
-        // Si ya tiene perfil → feed, si no → onboarding
         if (perfil) {
           return NextResponse.redirect(`${origin}/feed`);
         } else {
           return NextResponse.redirect(`${origin}/onboarding`);
         }
+      } catch (e) {
+        // Si falla la consulta del perfil, mandamos al onboarding
+        return NextResponse.redirect(`${origin}/onboarding`);
       }
     }
   }
