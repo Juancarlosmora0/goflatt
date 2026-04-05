@@ -11,13 +11,24 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 249, 255, 0.95);
+  background: rgba(248, 249, 255, 0.97);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid #eef0f8;
   padding: 14px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
 }
 
 .topbarTitle {
@@ -37,42 +48,47 @@
   color: #e8845a;
   font-family: inherit;
   padding: 0;
-  transition: opacity 0.2s;
 }
-
-.topbarBtn:hover { opacity: 0.7; }
 
 /* ===== CONTAINER ===== */
 .container {
   max-width: 580px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 20px 16px;
 }
 
-/* ===== AVATAR SECTION ===== */
-.avatarSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 32px 24px;
+/* ===== HERO PERFIL ===== */
+.heroCard {
   background: white;
   border-radius: 24px;
   border: 1.5px solid #eef0f8;
+  padding: 0 24px 28px;
   margin-bottom: 12px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.avatarBg {
+.heroBg {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 80px;
-  background: linear-gradient(135deg, #1e3a4a, #2a5568);
+  height: 90px;
+  background: linear-gradient(135deg, #1e3a4a 0%, #2d5a73 100%);
+}
+
+.avatarWrap {
+  position: relative;
+  z-index: 1;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  cursor: pointer;
 }
 
 .avatar {
-  width: 88px;
-  height: 88px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: linear-gradient(135deg, #e8845a, #d46b3f);
   display: flex;
@@ -82,60 +98,87 @@
   font-size: 36px;
   font-weight: 800;
   border: 4px solid white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-  position: relative;
-  z-index: 1;
-  margin-bottom: 16px;
-  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-.avatarEdit {
+.avatarImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  display: block;
+}
+
+.avatarSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.avatarEditBtn {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   background: #1e3a4a;
   border-radius: 50%;
   border: 2px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.userName {
+.heroNombre {
   font-size: 22px;
   font-weight: 800;
   color: #1e3a4a;
   letter-spacing: -0.5px;
   margin-bottom: 4px;
+  text-align: center;
 }
 
-.userSub {
+.heroSub {
   font-size: 13px;
   color: #999;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  text-align: center;
 }
 
-.userBadges {
+.destinosRow {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
-.userBadge {
+.destinoBadge {
   display: flex;
   align-items: center;
   gap: 5px;
-  background: #f8f9ff;
-  border: 1px solid #eef0f8;
+  background: rgba(30,58,74,0.06);
+  border: 1px solid rgba(30,58,74,0.12);
   border-radius: 100px;
   padding: 5px 12px;
   font-size: 12px;
-  color: #666;
-  font-weight: 500;
+  color: #1e3a4a;
+  font-weight: 600;
+}
+
+.uniRow {
+  font-size: 13px;
+  color: #888;
+  text-align: center;
 }
 
 /* ===== STATS ===== */
@@ -150,12 +193,15 @@
   background: white;
   border: 1.5px solid #eef0f8;
   border-radius: 16px;
-  padding: 16px;
+  padding: 16px 12px;
   text-align: center;
+  transition: all 0.2s;
 }
 
+.statCard:hover { border-color: rgba(232,132,90,0.3); }
+
 .statNum {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: #1e3a4a;
   letter-spacing: -0.5px;
@@ -192,7 +238,7 @@
   text-transform: uppercase;
 }
 
-.sectionEdit {
+.sectionAction {
   font-size: 12px;
   font-weight: 600;
   color: #e8845a;
@@ -201,13 +247,157 @@
   cursor: pointer;
   font-family: inherit;
   padding: 0;
+  transition: opacity 0.2s;
 }
+
+.sectionAction:hover { opacity: 0.7; }
+
+/* ===== GRUPO CARD ===== */
+.grupoCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(30,58,74,0.04), rgba(232,132,90,0.03));
+  border: 1.5px solid rgba(30,58,74,0.08);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.grupoCard:hover {
+  border-color: rgba(232,132,90,0.3);
+  transform: translateY(-1px);
+}
+
+.grupoCardIcon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.grupoCardInfo { flex: 1; }
+
+.grupoCardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e3a4a;
+  margin-bottom: 3px;
+}
+
+.grupoCardSub {
+  font-size: 12px;
+  color: #999;
+}
+
+.grupoCardBadge {
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(46,204,113,0.1);
+  color: #27ae60;
+  padding: 3px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.grupoCardArrow {
+  font-size: 16px;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+.grupoCardEmpty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #f8f9ff;
+  border: 2px dashed #eef0f8;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.grupoCardEmpty:hover { border-color: rgba(232,132,90,0.3); }
+
+.grupoEmptyIcon { font-size: 28px; flex-shrink: 0; }
+
+.grupoEmptyTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e3a4a;
+  margin-bottom: 3px;
+}
+
+.grupoEmptySub { font-size: 12px; color: #bbb; }
+
+/* ===== BIO ===== */
+.bioText {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  cursor: pointer;
+  min-height: 40px;
+}
+
+.bioTextarea {
+  width: 100%;
+  background: #f8f9ff;
+  border: 1.5px solid #eef0f8;
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #1e3a4a;
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  line-height: 1.6;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.bioTextarea:focus { border-color: #e8845a; }
+
+.bioActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.btnCancelar {
+  background: none;
+  border: 1.5px solid #eef0f8;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btnGuardar {
+  background: #1e3a4a;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btnGuardar:disabled { opacity: 0.5; }
 
 /* ===== INFO ROWS ===== */
 .infoRow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 16px;
   padding: 10px 0;
   border-bottom: 1px solid #f5f5f5;
 }
@@ -217,12 +407,14 @@
 .infoLabel {
   font-size: 13px;
   color: #999;
+  flex-shrink: 0;
 }
 
 .infoValue {
   font-size: 13px;
   font-weight: 600;
   color: #1e3a4a;
+  text-align: right;
 }
 
 /* ===== CHIPS ===== */
@@ -242,67 +434,10 @@
   font-weight: 600;
 }
 
-/* ===== BIO ===== */
-.bioText {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.7;
-}
-
-/* ===== MI GRUPO ===== */
-.miGrupoCard {
-  background: linear-gradient(135deg, rgba(30,58,74,0.05), rgba(232,132,90,0.04));
-  border: 1.5px solid rgba(30,58,74,0.1);
-  border-radius: 16px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.miGrupoCard:hover {
-  border-color: rgba(232,132,90,0.3);
-  transform: translateY(-1px);
-}
-
-.miGrupoIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #1e3a4a, #2a5568);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.miGrupoInfo { flex: 1; }
-
-.miGrupoTitle {
-  font-size: 14px;
-  font-weight: 700;
-  color: #1e3a4a;
-  margin-bottom: 3px;
-}
-
-.miGrupoSub {
-  font-size: 12px;
-  color: #999;
-}
-
-.miGrupoArrow {
-  font-size: 16px;
-  color: #ccc;
-}
-
 /* ===== ACTIONS ===== */
 .actionsList {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .actionItem {
@@ -312,7 +447,6 @@
   padding: 14px 0;
   border-bottom: 1px solid #f5f5f5;
   cursor: pointer;
-  transition: all 0.2s;
   background: none;
   border-left: none;
   border-right: none;
@@ -320,10 +454,10 @@
   width: 100%;
   font-family: inherit;
   text-align: left;
+  transition: all 0.2s;
 }
 
 .actionItem:last-child { border-bottom: none; }
-
 .actionItem:hover .actionLabel { color: #e8845a; }
 
 .actionIcon {
@@ -345,12 +479,18 @@
   transition: color 0.2s;
 }
 
-.actionArrow {
-  font-size: 14px;
-  color: #ddd;
-}
+.actionArrow { font-size: 18px; color: #ddd; }
 
 .actionDanger .actionLabel { color: #e74c3c; }
+
+.notifBadge {
+  background: #e8845a;
+  color: white;
+  border-radius: 100px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
 
 /* ===== BOTTOM NAV ===== */
 .bottomNav {
@@ -363,7 +503,6 @@
   align-items: flex-end;
   padding: 0 24px 28px;
   z-index: 50;
-  box-shadow: 0 -8px 32px rgba(0,0,0,0.06);
 }
 
 .bnItem {
@@ -382,7 +521,7 @@
 }
 
 .bnActive { color: #e8845a; }
-.bnIcon { font-size: 22px; line-height: 1; }
+.bnIcon { font-size: 20px; line-height: 1; }
 .bnLabel { font-size: 10px; font-weight: 600; letter-spacing: 0.3px; }
 
 .bnCreateBtn {
@@ -415,9 +554,7 @@
   border: 3px solid white;
 }
 
-.bnCreateBtn:hover .bnCreateIcon {
-  transform: scale(1.08) translateY(-2px);
-}
+.bnCreateBtn:hover .bnCreateIcon { transform: scale(1.08) translateY(-2px); }
 
 .bnCreateLabel {
   font-size: 10px;
@@ -429,6 +566,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   .container { padding: 16px 12px; }
-  .statsRow { grid-template-columns: 1fr 1fr 1fr; }
   .section { padding: 16px; }
+  .heroCard { padding: 0 16px 24px; }
+  .statsRow { gap: 8px; }
 }
