@@ -11,7 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 249, 255, 0.95);
+  background: rgba(248, 249, 255, 0.97);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid #eef0f8;
   padding: 14px 16px;
@@ -21,9 +21,6 @@
 }
 
 .backBtn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
   background: none;
   border: none;
   color: #999;
@@ -31,8 +28,8 @@
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
-  transition: color 0.2s;
   padding: 0;
+  transition: color 0.2s;
 }
 
 .backBtn:hover { color: #1e3a4a; }
@@ -45,13 +42,15 @@
   text-align: center;
 }
 
-.topbarCount {
+.topbarBadge {
   background: #e8845a;
   color: white;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 100px;
+  min-width: 20px;
+  text-align: center;
 }
 
 /* ===== CONTAINER ===== */
@@ -61,21 +60,25 @@
   padding: 20px 16px;
 }
 
-/* ===== TABS ===== */
-.tabs {
+/* ===== MAIN TABS ===== */
+.mainTabs {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   background: white;
   border: 1.5px solid #eef0f8;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
-.tab {
+.mainTab {
   flex: 1;
-  padding: 10px;
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 16px;
+  border-radius: 12px;
   border: none;
   background: none;
   font-size: 13px;
@@ -86,49 +89,197 @@
   transition: all 0.2s;
 }
 
-.tabActive {
+.mainTabActive {
   background: #1e3a4a;
   color: white;
   box-shadow: 0 2px 8px rgba(30,58,74,0.2);
 }
 
-/* ===== CARDS ===== */
+.tabBadge {
+  background: #e8845a;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 100px;
+}
+
+.tabBadgeGray {
+  background: #eef0f8;
+  color: #999;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 100px;
+}
+
+/* ===== FILTRO ESTADO ===== */
+.filtroEstado {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.filtroEstado::-webkit-scrollbar { display: none; }
+
+.filtroBtn {
+  background: white;
+  border: 1.5px solid #eef0f8;
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.filtroBtnActive {
+  background: rgba(232,132,90,0.08);
+  border-color: #e8845a;
+  color: #e8845a;
+  font-weight: 700;
+}
+
+/* ===== LOADING ===== */
+.loadingWrap {
+  text-align: center;
+  padding: 64px 24px;
+  color: #bbb;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #e8845a;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== CARD ===== */
 .card {
   background: white;
   border: 1.5px solid #eef0f8;
   border-radius: 20px;
-  padding: 20px;
+  padding: 18px;
   margin-bottom: 10px;
   transition: all 0.2s;
   position: relative;
   overflow: hidden;
 }
 
-.cardNew {
-  border-color: rgba(232,132,90,0.3);
+.cardPendiente {
+  border-color: rgba(232,132,90,0.25);
 }
 
-.cardNew::before {
+.cardPendiente::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 3px;
+  width: 4px;
   height: 100%;
-  background: #e8845a;
-  border-radius: 0;
+  background: linear-gradient(180deg, #e8845a, #5aacb8);
 }
 
-.cardTop {
+.cardMatch {
+  border-color: rgba(46,204,113,0.4);
+  background: rgba(46,204,113,0.02);
+}
+
+/* MATCH CELEBRACIÓN */
+.matchCelebration {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(46,204,113,0.08);
+  border: 1px solid rgba(46,204,113,0.2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.matchEmoji { font-size: 24px; }
+
+.matchTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: #27ae60;
+  margin-bottom: 2px;
+}
+
+.matchSub {
+  font-size: 12px;
+  color: #999;
+}
+
+/* SCORE ROW */
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.scoreLabel {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.scoreBarWrap { flex: 1; }
+
+.scoreBar {
+  height: 4px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.scoreBarFill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.6s ease;
+}
+
+.scoreNum {
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* CARD HEADER */
+.cardHeader {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+.cardAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,22 +301,13 @@
 .cardSub {
   font-size: 12px;
   color: #999;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.cardTags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  background: #f8f9ff;
-  border-radius: 8px;
-  padding: 3px 8px;
-  font-size: 11px;
-  color: #666;
-  font-weight: 500;
+.cardPresupuesto {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e8845a;
 }
 
 .cardTime {
@@ -174,11 +316,36 @@
   flex-shrink: 0;
 }
 
-/* ===== MENSAJE ===== */
+/* TAGS */
+.tagsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background: #f8f9ff;
+  border: 1px solid #eef0f8;
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* GRUPO LABEL */
+.grupoLabel {
+  font-size: 12px;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+/* MENSAJE */
 .mensaje {
   background: #f8f9ff;
   border-radius: 12px;
-  padding: 14px;
+  padding: 12px 14px;
   font-size: 13px;
   color: #555;
   line-height: 1.6;
@@ -187,11 +354,12 @@
   border-left: 3px solid #eef0f8;
 }
 
-.mensajeNew {
+.mensajePendiente {
   border-left-color: #e8845a;
+  background: rgba(232,132,90,0.04);
 }
 
-/* ===== ACCIONES ===== */
+/* ACCIONES */
 .actions {
   display: flex;
   gap: 8px;
@@ -204,7 +372,7 @@
   border: none;
   border-radius: 12px;
   padding: 12px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
@@ -212,17 +380,19 @@
   box-shadow: 0 4px 16px rgba(46,204,113,0.25);
 }
 
-.btnAceptar:hover {
+.btnAceptar:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(46,204,113,0.35);
 }
 
+.btnAceptar:disabled { opacity: 0.6; cursor: not-allowed; }
+
 .btnRechazar {
-  background: #f8f9ff;
+  background: white;
   color: #999;
   border: 1.5px solid #eef0f8;
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 12px 20px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -233,52 +403,43 @@
 .btnRechazar:hover {
   border-color: #e74c3c;
   color: #e74c3c;
-  background: rgba(231,76,60,0.05);
+  background: rgba(231,76,60,0.04);
 }
 
-.btnVerPerfil {
-  background: none;
-  color: #5aacb8;
-  border: 1.5px solid rgba(90,172,184,0.3);
+/* ESTADO BOX */
+.estadoBox {
+  border: 1px solid;
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.emailLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5aacb8;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.emailLink:hover { text-decoration: underline; }
+
+.btnVerGrupo {
+  background: none;
+  border: none;
+  color: #5aacb8;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.2s;
+  padding: 0;
+  margin-top: 4px;
+  transition: opacity 0.2s;
 }
 
-.btnVerPerfil:hover {
-  background: rgba(90,172,184,0.08);
-}
-
-/* ===== ESTADO ACEPTADO/RECHAZADO ===== */
-.estadoAceptado {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(46,204,113,0.08);
-  border: 1px solid rgba(46,204,113,0.2);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #27ae60;
-}
-
-.estadoRechazado {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(231,76,60,0.06);
-  border: 1px solid rgba(231,76,60,0.15);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #e74c3c;
-}
+.btnVerGrupo:hover { opacity: 0.7; }
 
 /* ===== EMPTY STATE ===== */
 .emptyState {
@@ -314,11 +475,12 @@
   cursor: pointer;
   font-family: inherit;
   transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(232,132,90,0.3);
 }
 
 .btnCreate:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(232,132,90,0.35);
+  box-shadow: 0 8px 28px rgba(232,132,90,0.4);
 }
 
 /* ===== BOTTOM NAV ===== */
@@ -332,7 +494,6 @@
   align-items: flex-end;
   padding: 0 24px 28px;
   z-index: 50;
-  box-shadow: 0 -8px 32px rgba(0,0,0,0.06);
 }
 
 .bnItem {
@@ -351,7 +512,7 @@
 }
 
 .bnActive { color: #e8845a; }
-.bnIcon { font-size: 22px; line-height: 1; }
+.bnIcon { font-size: 20px; line-height: 1; }
 .bnLabel { font-size: 10px; font-weight: 600; letter-spacing: 0.3px; }
 
 .bnCreateBtn {
@@ -384,9 +545,7 @@
   border: 3px solid white;
 }
 
-.bnCreateBtn:hover .bnCreateIcon {
-  transform: scale(1.08) translateY(-2px);
-}
+.bnCreateBtn:hover .bnCreateIcon { transform: scale(1.08) translateY(-2px); }
 
 .bnCreateLabel {
   font-size: 10px;
@@ -398,6 +557,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   .container { padding: 16px 12px; }
-  .actions { flex-wrap: wrap; }
-  .btnAceptar { flex: 1; min-width: 100%; }
+  .actions { flex-direction: column; }
+  .btnAceptar { width: 100%; }
+  .btnRechazar { width: 100%; }
 }

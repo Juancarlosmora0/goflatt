@@ -38,11 +38,11 @@ export const metadata = {
     description:
       "Forma tu grupo de piso con estudiantes compatibles en tu ciudad de destino, antes de llegar. Para Erasmus, másters e intercambios.",
     images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
+    {
+      url: "/api/og",
+      width: 1200,
+      height: 630,
+      alt: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
       },
     ],
   },
@@ -65,11 +65,13 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+ icons: {
+  icon: [
+    { url: "/favicon.svg", type: "image/svg+xml" },
+    { url: "/favicon.ico" },
+  ],
+  apple: "/apple-touch-icon.png",
+},
   manifest: "/site.webmanifest",
   verification: {
     google: "5DonNmz019P5YVvHZO3b5IXcWx9nCZXQPvAcLcITFkA",
