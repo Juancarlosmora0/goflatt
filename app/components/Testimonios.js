@@ -6,26 +6,26 @@ import styles from "./Testimonios.module.css";
 const testimonios = [
   {
     name: "Sara M.",
-    uni: "Máster en Milán · UC3M",
-    text: "Me fui a hacer un máster sola y encontré a mis dos compañeras de piso en menos de una semana. Imposible haberlo hecho tan rápido por WhatsApp. Todo muy claro y organizado.",
+    uni: "Master's in Milan · UC3M",
+    text: "I went to do a master's alone and found my two flatmates in less than a week. Impossible to have done it so fast on WhatsApp. Everything was clear and organized.",
     avatar: "/avatars/avatar1.jpg",
     color: "#e8845a",
     stars: 5,
-    tag: "Máster",
+    tag: "Master's",
   },
   {
     name: "Alejandro R.",
-    uni: "Intercambio en Berlín · UPM",
-    text: "Lo que más me gustó es ver directamente cuántas plazas le faltan a cada grupo. Sin mensajes en el vacío ni grupos de Telegram eternos. En 4 días tenía grupo.",
+    uni: "Exchange in Berlin · UPM",
+    text: "What I loved most was seeing directly how many spots each group had left. No messages into the void, no endless Telegram groups. In 4 days I had my group.",
     avatar: "/avatars/avatar2.jpg",
     color: "#5aacb8",
     stars: 5,
-    tag: "Intercambio",
+    tag: "Exchange",
   },
   {
     name: "Marta L.",
-    uni: "Erasmus en Lisboa · USC",
-    text: "Éramos 3 amigas y necesitábamos una persona más. Lo publicamos y en 3 días teníamos grupo completo. La chica que se unió es ahora una amiga más.",
+    uni: "Erasmus in Lisbon · USC",
+    text: "We were 3 friends and needed one more person. We posted and in 3 days our group was complete. The girl who joined is now one of my best friends.",
     avatar: "/avatars/avatar3.jpg",
     color: "#1e3a4a",
     stars: 5,
@@ -33,8 +33,8 @@ const testimonios = [
   },
   {
     name: "Pablo G.",
-    uni: "Erasmus en Ámsterdam · UAM",
-    text: "Pensé que iba a ser otra app más de anuncios pero no. Puedes ver el perfil real de cada persona, su presupuesto, sus horarios. Encontré gente compatible de verdad.",
+    uni: "Erasmus in Amsterdam · UAM",
+    text: "I thought it would be just another listing app but no. You can see each person's real profile, their budget, their schedule. I found genuinely compatible people.",
     avatar: "/avatars/avatar4.jpg",
     color: "#e8845a",
     stars: 5,
@@ -42,21 +42,21 @@ const testimonios = [
   },
   {
     name: "Iria F.",
-    uni: "Máster en París · UDC",
-    text: "Tenía mucho miedo de irme sola a París sin conocer a nadie. GoFlatt me ayudó a encontrar dos compañeras de piso antes de llegar. Llegué con grupo, no con ansiedad.",
+    uni: "Master's in Paris · UDC",
+    text: "I was really scared to go to Paris alone knowing nobody. GoFlatt helped me find two flatmates before I even arrived. I landed with a group, not with anxiety.",
     avatar: "/avatars/avatar5.jpg",
     color: "#5aacb8",
     stars: 5,
-    tag: "Máster",
+    tag: "Master's",
   },
   {
     name: "Carlos M.",
-    uni: "Intercambio en Praga · UPV",
-    text: "Lo usé para completar nuestro grupo, éramos 2 y necesitábamos 2 más. En menos de una semana teníamos las 4 personas y ya estábamos buscando piso juntos.",
+    uni: "Exchange in Prague · UPV",
+    text: "I used it to complete our group — we were 2 and needed 2 more. In less than a week we had all 4 people and were already searching for a flat together.",
     avatar: "/avatars/avatar6.jpg",
     color: "#1e3a4a",
     stars: 5,
-    tag: "Intercambio",
+    tag: "Exchange",
   },
 ];
 
@@ -68,11 +68,11 @@ export default function Testimonios() {
         {/* HEADER */}
         <div className={styles.header}>
           <div className={styles.headerBadge}>
-            <span>⭐</span> Testimonios reales
+            <span>⭐</span> Real reviews
           </div>
-          <h2 className={styles.title}>Lo que dicen<br />los estudiantes</h2>
+          <h2 className={styles.title}>What Erasmus students<br />say about GoFlatt</h2>
           <p className={styles.subtitle}>
-            Más de 240 grupos formados. Experiencias reales de personas como tú.
+            Over 240 groups formed. Real experiences from people just like you.
           </p>
           <div className={styles.rating}>
             <div className={styles.ratingStars}>
@@ -81,7 +81,7 @@ export default function Testimonios() {
               ))}
             </div>
             <span className={styles.ratingNum}>4.9</span>
-            <span className={styles.ratingText}>de 5 · +240 grupos</span>
+            <span className={styles.ratingText}>out of 5 · +240 groups</span>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ export default function Testimonios() {
                 <div className={styles.avatarWrap}>
                   <Image
                     src={t.avatar}
-                    alt={t.name}
+                    alt={`${t.name} — GoFlatt review`}
                     width={44}
                     height={44}
                     className={styles.avatar}
@@ -132,7 +132,7 @@ export default function Testimonios() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
-                  Verificado
+                  Verified
                 </div>
               </div>
             </div>

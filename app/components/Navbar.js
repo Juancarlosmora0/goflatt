@@ -27,39 +27,36 @@ export default function Navbar() {
       <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
 
         {/* LOGO */}
-        <a href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+        <a href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+          aria-label="GoFlatt — Find Erasmus Roommates">
           <Image
             src="/logo.png"
-            alt="GoFlatt"
+            alt="GoFlatt — Find Erasmus Roommates Before You Arrive"
             width={240}
             height={72}
             priority
-            style={{
-              height: "40px",
-              width: "auto",
-              objectFit: "contain",
-            }}
+            style={{ height: "40px", width: "auto", objectFit: "contain" }}
           />
         </a>
 
         {/* Links — solo desktop */}
         <div className={styles.links}>
-          <a href="#como-funciona" className={styles.link}>Cómo funciona</a>
-          <a href="#ciudades" className={styles.link}>Ciudades</a>
-          <a href="#testimonios" className={styles.link}>Testimonios</a>
+          <a href="#como-funciona" className={styles.link}>How it works</a>
+          <a href="#ciudades" className={styles.link}>Cities</a>
+          <a href="#testimonios" className={styles.link}>Reviews</a>
         </div>
 
         {/* Acciones — solo desktop */}
         <div className={styles.actions}>
-          <a href="/login" className={styles.loginBtn}>Iniciar sesión</a>
-          <a href="/login" className={styles.ctaBtn}>Empezar gratis →</a>
+          <a href="/login" className={styles.loginBtn}>Log in</a>
+          <a href="/login" className={styles.ctaBtn}>Start for free →</a>
         </div>
 
         {/* Hamburger — solo móvil */}
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menú"
+          aria-label="Open menu"
         >
           <span></span>
           <span></span>
@@ -70,24 +67,24 @@ export default function Navbar() {
       {/* Menú móvil */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
         <a href="#como-funciona" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
-          Cómo funciona
+          How it works
         </a>
         <a href="#ciudades" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
-          Ciudades
+          Cities
         </a>
         <a href="#testimonios" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
-          Testimonios
+          Reviews
         </a>
         <div className={styles.mobileDivider} />
         <a href="/login" className={styles.mobileLogin} onClick={() => setMenuOpen(false)}>
-          Iniciar sesión
+          Log in
         </a>
         <a href="/login" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>
-          Empezar gratis →
+          Start for free →
         </a>
       </div>
 
-      {/* Overlay al abrir menú */}
+      {/* Overlay */}
       {menuOpen && (
         <div
           onClick={() => setMenuOpen(false)}

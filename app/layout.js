@@ -1,5 +1,6 @@
 import { Geist } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -78,45 +79,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geist.variable} h-full antialiased`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              name: "GoFlatt",
-              url: "https://goflatt.com",
-              description:
-                "Platform for international students to find compatible flatmates before arriving at their Erasmus or exchange destination.",
-              applicationCategory: "SocialNetworkingApplication",
-              operatingSystem: "Web",
-              inLanguage: ["en", "es", "it", "fr", "de", "pt"],
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "EUR",
-              },
-              audience: {
-                "@type": "Audience",
-                audienceType: "International university students, Erasmus students",
-              },
-            }),
-          }}
-        />
-        {/* GA4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-WM29Y87LZ3');
-            `,
-          }}
-        />
+        {/* tu JSON-LD aquí */}
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WM29Y87LZ3"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WM29Y87LZ3');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }

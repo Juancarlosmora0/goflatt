@@ -194,8 +194,19 @@ export default function Home() {
   { icon: "👻", text: "Fake profiles or people who ghost you" },
   { icon: "🤷", text: "No filters — you don't know who you'll live with" },
   { icon: "⏰", text: "Flats run out while you're still forming your group" },
-]}
-
+].map((p, i) => (
+  <div key={i} style={{
+    display: "flex", alignItems: "center", gap: "16px",
+    background: "rgba(255,255,255,0.06)",
+    border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: "14px", padding: "14px 18px",
+  }}>
+    <span style={{ fontSize: "22px", flexShrink: 0 }}>{p.icon}</span>
+    <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", margin: 0, lineHeight: 1.5 }}>
+      {p.text}
+    </p>
+  </div>
+))}
 <p style={{
   fontSize: "17px", color: "white", fontWeight: 700, marginTop: "28px",
 }}>
