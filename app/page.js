@@ -5,9 +5,18 @@ import Testimonios from "./components/Testimonios";
 import styles from "./landing.module.css";
 
 export const metadata = {
-  title: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
+  title: "GoFlatt — Find Erasmus Roommates Before You Arrive",
   description:
-    "Forma tu grupo de piso con estudiantes compatibles en tu ciudad de destino. Para Erasmus, másters e intercambios. Sin caos, sin WhatsApp eternos.",
+    "Stop scrolling through chaotic WhatsApp groups. Find compatible flatmates for your Erasmus or exchange in Milan, Lisbon, Berlin, Amsterdam and more. Free.",
+  alternates: {
+    canonical: "https://goflatt.com",
+  },
+  openGraph: {
+    title: "GoFlatt — Find Erasmus Roommates Before You Arrive",
+    description: "Form your flat group with compatible students before arriving. No chaos. No fake profiles. Just real Erasmus students.",
+    url: "https://goflatt.com",
+    images: [{ url: "/api/og", width: 1200, height: 630 }],
+  },
 };
 
 export default function Home() {
@@ -18,13 +27,13 @@ export default function Home() {
       color: "#1e3a4a",
       overflowX: "hidden",
     }}>
-     <Navbar />
+      <Navbar />
       <h1 style={{
         position: "absolute", width: "1px", height: "1px",
         padding: 0, margin: "-1px", overflow: "hidden",
         clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0,
       }}>
-        GoFlatt — Encuentra tu grupo de piso antes de llegar
+        GoFlatt — Find Erasmus Roommates Before You Arrive
       </h1>
 
       {/* ===== HERO ===== */}
@@ -44,28 +53,27 @@ export default function Home() {
               width: "7px", height: "7px", borderRadius: "50%",
               background: "#e8845a", display: "inline-block",
             }} />
-            Para estudiantes que se mudan a una ciudad nueva
+            🔥 The app Erasmus students use to find flatmates
           </div>
 
           <h1 style={{
             fontSize: "clamp(36px, 4vw, 64px)", fontWeight: 900,
             lineHeight: 1.05, letterSpacing: "-2px", marginBottom: "24px",
           }}>
-            Tu Erasmus empieza<br />
-            <span style={{ color: "#e8845a" }}>encontrando<br />tu gente.</span>
+            Your Erasmus starts<br />
+            <span style={{ color: "#e8845a" }}>with the<br />right people.</span>
           </h1>
 
           <p style={{
             fontSize: "clamp(15px, 1.5vw, 18px)", color: "#666",
             lineHeight: 1.7, marginBottom: "12px", maxWidth: "480px",
           }}>
-            Deja de mandar mensajes en grupos de WhatsApp infinitos.
-            Forma tu grupo de piso con estudiantes compatibles
-            <strong style={{ color: "#1e3a4a" }}> antes de llegar a tu destino.</strong>
+            Stop scrolling through endless WhatsApp groups.
+            Find <strong style={{ color: "#1e3a4a" }}>compatible Erasmus flatmates</strong> before you even pack your bags.
           </p>
 
           <p style={{ fontSize: "13px", color: "#999", marginBottom: "40px" }}>
-            Erasmus · Máster · Intercambio · Cualquier estudiante que se muda 🌍
+            Erasmus · Master's · Exchange · Internship abroad 🌍
           </p>
 
           <div style={{
@@ -77,7 +85,7 @@ export default function Home() {
               borderRadius: "100px", textDecoration: "none", fontSize: "16px",
               boxShadow: "0 8px 32px rgba(30,58,74,0.3)",
             }}>
-              Buscar mi grupo →
+              Find My Group →
             </a>
             <a href="#como-funciona" style={{
               background: "white", color: "#1e3a4a", fontWeight: 500,
@@ -85,7 +93,7 @@ export default function Home() {
               textDecoration: "none", fontSize: "16px",
               border: "1.5px solid #e8e8e8",
             }}>
-              Cómo funciona
+              How it works
             </a>
           </div>
 
@@ -103,8 +111,8 @@ export default function Home() {
             </div>
             <div>
               <p style={{ fontSize: "13px", color: "#555", fontWeight: 600, margin: 0 }}>
-                +240 estudiantes ya encontraron grupo
-              </p>
+  +240 students already found their group
+</p>
               <div style={{ display: "flex", gap: "2px", marginTop: "3px" }}>
                 {"★★★★★".split("").map((s,i) => (
                   <span key={i} style={{ color: "#e8845a", fontSize: "13px" }}>{s}</span>
@@ -133,12 +141,12 @@ export default function Home() {
                 color: "white", fontWeight: 700, fontSize: "16px", flexShrink: 0,
               }}>S</div>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1e3a4a" }}>
-                  Sara encontró grupo en Milán
-                </p>
-                <p style={{ margin: 0, fontSize: "11px", color: "#999" }}>
-                  Hace 2 horas · 1 plaza libre
-                </p>
+               <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#1e3a4a" }}>
+  Sara found her group in Milan
+</p>
+<p style={{ margin: 0, fontSize: "11px", color: "#999" }}>
+  2 hours ago · 1 spot left
+</p>
               </div>
               <div style={{
                 background: "rgba(46,204,113,0.1)",
@@ -168,45 +176,31 @@ export default function Home() {
 
         <div className={styles.problemaTexto}>
           <p style={{
-            fontSize: "12px", fontWeight: 700, color: "#5aacb8",
-            letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px",
-          }}>¿Te suena esto?</p>
+  fontSize: "12px", fontWeight: 700, color: "#5aacb8",
+  letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px",
+}}>Sound familiar?</p>
 
-          <h2 style={{
-            fontSize: "clamp(22px, 3vw, 38px)", fontWeight: 900,
-            color: "white", letterSpacing: "-1px",
-            lineHeight: 1.2, marginBottom: "40px",
-          }}>
-            "Grupo Erasmus Milán 🇮🇹<br />
-            <span style={{ color: "#e8845a" }}>busco piso para 4... o 3... o 2 🤦"</span>
-          </h2>
+<h2 style={{
+  fontSize: "clamp(22px, 3vw, 38px)", fontWeight: 900,
+  color: "white", letterSpacing: "-1px",
+  lineHeight: 1.2, marginBottom: "40px",
+}}>
+  "Erasmus Milan group 🇮🇹<br />
+  <span style={{ color: "#e8845a" }}>anyone for a flat? 3 of us... or 2... 🤦"</span>
+</h2>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {[
-              { icon: "😩", text: "200 mensajes sin respuesta en WhatsApp" },
-              { icon: "👻", text: "Perfiles falsos o gente que desaparece" },
-              { icon: "🤷", text: "Sin filtros — no sabes con quién vivirás" },
-              { icon: "⏰", text: "Los pisos se agotan mientras buscas grupo" },
-            ].map((p,i) => (
-              <div key={i} style={{
-                display: "flex", alignItems: "center", gap: "16px",
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "14px", padding: "14px 18px",
-              }}>
-                <span style={{ fontSize: "22px", flexShrink: 0 }}>{p.icon}</span>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", margin: 0, lineHeight: 1.5 }}>
-                  {p.text}
-                </p>
-              </div>
-            ))}
-          </div>
+{[
+  { icon: "😩", text: "200 messages with no answer on WhatsApp" },
+  { icon: "👻", text: "Fake profiles or people who ghost you" },
+  { icon: "🤷", text: "No filters — you don't know who you'll live with" },
+  { icon: "⏰", text: "Flats run out while you're still forming your group" },
+]}
 
-          <p style={{
-            fontSize: "17px", color: "white", fontWeight: 700, marginTop: "28px",
-          }}>
-            GoFlatt lo resuelve en menos de 5 minutos. 🚀
-          </p>
+<p style={{
+  fontSize: "17px", color: "white", fontWeight: 700, marginTop: "28px",
+}}>
+  GoFlatt fixes it in under 5 minutes. 🚀
+</p>
         </div>
       </section>
 
@@ -214,10 +208,10 @@ export default function Home() {
       <section style={{ padding: "80px 24px", background: "white" }}>
         <div className={styles.statsGrid}>
           {[
-            { num: "+240", label: "grupos formados", sub: "este semestre" },
-            { num: "6", label: "ciudades activas", sub: "Europa" },
-            { num: "4.9★", label: "valoración media", sub: "de los usuarios" },
-            { num: "<5min", label: "para encontrar grupo", sub: "de media" },
+            { num: "+240", label: "groups formed", sub: "this semester" },
+{ num: "+6", label: "active cities", sub: "across Europe" },
+{ num: "4.9★", label: "average rating", sub: "from our users" },
+{ num: "<5min", label: "to find your group", sub: "on average" },
           ].map((s,i) => (
             <div key={i} style={{ padding: "16px" }}>
               <div style={{
@@ -241,19 +235,19 @@ export default function Home() {
               fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900,
               letterSpacing: "-1px", marginBottom: "16px", color: "#1e3a4a",
             }}>
-              Por fin, orden en el caos
+              Stop searching on WhatsApp. Start finding.
             </h2>
             <p style={{ color: "#888", fontSize: "17px", maxWidth: "500px", margin: "0 auto" }}>
-              Todo lo que necesitas para encontrar a tus compañeros perfectos
+              Everything you need to find your perfect Erasmus flatmates
             </p>
           </div>
 
           <div className={styles.featuresInner}>
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {[
-                { icon: "👥", title: "Grupos reales, no perfiles sueltos", desc: "Ve grupos ya formados buscando 1, 2 o 3 personas más. Sin perfiles fantasma ni swipes infinitos.", tag: "Diferencial #1" },
-                { icon: "🎯", title: "Compatibilidad antes de hablar", desc: "Filtra por presupuesto, estilo de vida y ciudad. Solo contactas a quien realmente encaja contigo.", tag: "Diferencial #2" },
-                { icon: "⚡", title: "Sin registro largo, sin dramas", desc: "Entra con Google en 10 segundos. Perfil básico en 2 minutos. Grupos disponibles al instante.", tag: "Diferencial #3" },
+               { icon: "👥", title: "Real groups, not random profiles", desc: "See already-formed groups looking for 1, 2 or 3 more people. No ghost profiles, no endless swiping.", tag: "Why #1" },
+{ icon: "🎯", title: "Compatibility before you even talk", desc: "Filter by budget, lifestyle and city. You only contact people who actually match you.", tag: "Why #2" },
+{ icon: "⚡", title: "No long forms, no drama", desc: "Sign in with Google in 10 seconds. Basic profile in 2 minutes. Groups available instantly.", tag: "Why #3" },
               ].map((f,i) => (
                 <div key={i} style={{
                   background: "white", borderRadius: "20px", padding: "24px",
@@ -302,17 +296,17 @@ export default function Home() {
             fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900,
             letterSpacing: "-1px", marginBottom: "16px", color: "#1e3a4a",
           }}>
-            En 4 pasos, tienes grupo
+            From zero to group in less than 5 minutes
           </h2>
           <p style={{ color: "#888", fontSize: "16px", marginBottom: "56px" }}>
-            Sin complicaciones. Sin registro eterno.
+            No drama. No endless registration.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px", textAlign: "left" }}>
             {[
-              { step: "01", emoji: "🌍", title: "Elige tu ciudad y cuándo llegas", desc: "Milán, Lisboa, Berlín, Ámsterdam... Selecciona tu destino y tu semestre." },
-              { step: "02", emoji: "👤", title: "Crea tu perfil en 2 minutos", desc: "Solo lo esencial: presupuesto, estilo de vida, universidad. Sin formularios eternos." },
-              { step: "03", emoji: "🔍", title: "Explora grupos o crea el tuyo", desc: "Ve los grupos que buscan a alguien como tú. O publica el tuyo y recibe solicitudes." },
-              { step: "04", emoji: "🎉", title: "Conecta y empieza la aventura", desc: "Cuando hay match, os ponemos en contacto. A partir de ahí, sois vosotros." },
+              { step: "01", emoji: "🌍", title: "Pick your city and when you arrive", desc: "Milan, Lisbon, Berlin, Amsterdam... Select your destination and semester." },
+{ step: "02", emoji: "👤", title: "Create your profile in 2 minutes", desc: "Just the essentials: budget, lifestyle, university. No endless forms." },
+{ step: "03", emoji: "🔍", title: "Browse groups or create yours", desc: "See groups looking for someone like you. Or post yours and receive requests." },
+{ step: "04", emoji: "🎉", title: "Connect and start the adventure", desc: "When there's a match, we connect you. From there, it's up to you." },
             ].map((s,i) => (
               <div key={i} style={{
                 display: "flex", gap: "20px", alignItems: "flex-start",
@@ -349,21 +343,22 @@ export default function Home() {
               fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900,
               letterSpacing: "-1px", marginBottom: "16px", color: "#1e3a4a",
             }}>
-              Ya activos en 6 ciudades
+              Already active in +6 cities
             </h2>
             <p style={{ color: "#888", fontSize: "16px" }}>
-              Donde más estudiantes internacionales se concentran cada semestre
+              Where the most international students land every semester
             </p>
           </div>
 
           <div className={styles.ciudadesGrid}>
             {[
-              { flag: "🇮🇹", city: "Milán", groups: "34 grupos", hot: true },
-              { flag: "🇵🇹", city: "Lisboa", groups: "28 grupos", hot: true },
-              { flag: "🇩🇪", city: "Berlín", groups: "21 grupos", hot: false },
-              { flag: "🇳🇱", city: "Ámsterdam", groups: "19 grupos", hot: false },
-              { flag: "🇫🇷", city: "París", groups: "17 grupos", hot: false },
-              { flag: "🇨🇿", city: "Praga", groups: "15 grupos", hot: false },
+              { flag: "🇮🇹", city: "Milan", groups: "34 groups", hot: true },
+{ flag: "🇵🇹", city: "Lisbon", groups: "28 groups", hot: true },
+{ flag: "🇩🇪", city: "Berlin", groups: "21 groups", hot: false },
+{ flag: "🇳🇱", city: "Amsterdam", groups: "19 groups", hot: false },
+{ flag: "🇫🇷", city: "Paris", groups: "17 groups", hot: false },
+{ flag: "🇨🇿", city: "Prague", groups: "15 groups", hot: false },
+
             ].map((c,i) => (
               <a key={i} href="/login" style={{
                 background: "white", border: "1.5px solid #eef0f8",
@@ -418,21 +413,21 @@ export default function Home() {
             fontSize: "12px", fontWeight: 700, color: "#5aacb8",
             letterSpacing: "2px", textTransform: "uppercase", marginBottom: "20px",
           }}>
-            Tu próxima aventura empieza aquí
+            Your next adventure starts here
           </p>
           <h2 style={{
             fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900,
             color: "white", letterSpacing: "-2px",
             lineHeight: 1.1, marginBottom: "20px",
           }}>
-            ¿Listo para encontrar<br />
-            <span style={{ color: "#e8845a" }}>a tu gente?</span>
+            Ready to find<br />
+            <span style={{ color: "#e8845a" }}>your people?</span>
           </h2>
           <p style={{
             color: "rgba(255,255,255,0.7)", fontSize: "17px",
             marginBottom: "40px", maxWidth: "400px", margin: "0 auto 40px",
           }}>
-            Gratis. Sin tarjeta. En menos de 5 minutos.
+            Free. No credit card. Under 5 minutes.
           </p>
           <a href="/login" style={{
             display: "inline-block",
@@ -441,12 +436,12 @@ export default function Home() {
             borderRadius: "100px", textDecoration: "none", fontSize: "17px",
             boxShadow: "0 8px 40px rgba(232,132,90,0.45)",
           }}>
-            Empezar gratis →
+            Start for free →
           </a>
           <p style={{
             color: "rgba(255,255,255,0.4)", fontSize: "13px", marginTop: "20px",
           }}>
-            +240 estudiantes ya están dentro 🎓
+            +240 students are already inside 🎓
           </p>
         </div>
       </section>

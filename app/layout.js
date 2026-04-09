@@ -8,50 +8,45 @@ const geist = Geist({
 
 export const metadata = {
   title: {
-    default: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
+    default: "GoFlatt — Find Erasmus Roommates Before You Arrive",
     template: "%s | GoFlatt",
   },
   description:
-    "GoFlatt es la plataforma para que estudiantes de intercambio, Erasmus y máster encuentren compañeros de piso compatibles antes de llegar a su destino. Sin caos, sin WhatsApp eternos.",
+    "Find compatible flatmates for your Erasmus, master's or exchange program before you arrive. No WhatsApp chaos. No fake profiles. Just real students forming real groups.",
   keywords: [
+    "erasmus roommates",
+    "find flatmates erasmus",
+    "erasmus housing",
+    "student shared flat europe",
+    "erasmus roommate finder",
+    "find erasmus flatmates milan",
+    "find erasmus flatmates lisbon",
+    "find erasmus flatmates berlin",
     "compañeros de piso erasmus",
-    "grupo piso erasmus milán",
-    "grupo piso erasmus lisboa",
-    "buscar compañeros piso intercambio",
-    "formar grupo piso estudiantes",
-    "roommate erasmus",
-    "piso compartido estudiantes internacionales",
+    "buscar roommate erasmus",
+    "coinquilini erasmus",
+    "colocation erasmus",
     "goflatt",
   ],
   authors: [{ name: "GoFlatt" }],
   creator: "GoFlatt",
   metadataBase: new URL("https://goflatt.com"),
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "es_ES",
+    locale: "en_US",
     url: "https://goflatt.com",
     siteName: "GoFlatt",
-    title: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
+    title: "GoFlatt — Find Erasmus Roommates Before You Arrive",
     description:
-      "Forma tu grupo de piso con estudiantes compatibles en tu ciudad de destino, antes de llegar. Para Erasmus, másters e intercambios.",
-    images: [
-    {
-      url: "/api/og",
-      width: 1200,
-      height: 630,
-      alt: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
-      },
-    ],
+      "Form your flat group with compatible students before arriving in your Erasmus city. Free, fast, and no WhatsApp chaos.",
+    images: [{ url: "/api/og", width: 1200, height: 630, alt: "GoFlatt — Find Erasmus Roommates" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GoFlatt — Encuentra tu grupo de piso antes de llegar",
-    description:
-      "Forma tu grupo de piso con estudiantes compatibles en tu ciudad de destino, antes de llegar.",
-    images: ["/og-image.png"],
+    title: "GoFlatt — Find Erasmus Roommates Before You Arrive",
+    description: "Form your flat group with compatible students before arriving. Free.",
+    images: ["/api/og"],
     creator: "@goflatt",
   },
   robots: {
@@ -65,14 +60,14 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
- icons: {
-  icon: [
-    { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    { url: "/favicon.ico" },
-  ],
-  apple: "/apple-touch-icon.png",
-},
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   manifest: "/site.webmanifest",
   verification: {
     google: "5DonNmz019P5YVvHZO3b5IXcWx9nCZXQPvAcLcITFkA",
@@ -81,7 +76,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${geist.variable} h-full antialiased`}>
+    <html lang="en" className={`${geist.variable} h-full antialiased`}>
       <head>
         <script
           type="application/ld+json"
@@ -92,9 +87,10 @@ export default function RootLayout({ children }) {
               name: "GoFlatt",
               url: "https://goflatt.com",
               description:
-                "Plataforma para que estudiantes de intercambio encuentren compañeros de piso compatibles antes de llegar a su destino.",
+                "Platform for international students to find compatible flatmates before arriving at their Erasmus or exchange destination.",
               applicationCategory: "SocialNetworkingApplication",
               operatingSystem: "Web",
+              inLanguage: ["en", "es", "it", "fr", "de", "pt"],
               offers: {
                 "@type": "Offer",
                 price: "0",
@@ -102,9 +98,21 @@ export default function RootLayout({ children }) {
               },
               audience: {
                 "@type": "Audience",
-                audienceType: "Estudiantes universitarios internacionales",
+                audienceType: "International university students, Erasmus students",
               },
             }),
+          }}
+        />
+        {/* GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX');
+            `,
           }}
         />
       </head>

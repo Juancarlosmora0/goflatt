@@ -14,19 +14,34 @@ export async function generateMetadata({ params }) {
   if (!ciudad) return {};
 
   return {
-    title: `Compañeros de piso Erasmus en ${ciudad.nombre} — GoFlatt`,
-    description: `Encuentra compañeros de piso para tu Erasmus o intercambio en ${ciudad.nombre}. Grupos reales buscando estudiantes compatibles. Sin WhatsApp eternos.`,
+    title: `Roommates Erasmus en ${ciudad.nombre} 2026 — GoFlatt`,
+    description: `¿Te vas de Erasmus a ${ciudad.nombre} y aún no tienes compañeros de piso? En GoFlatt encuentras tu grupo antes de llegar. ${ciudad.grupos} grupos activos ahora. Gratis.`,
     keywords: [
       `compañeros de piso erasmus ${ciudad.nombre.toLowerCase()}`,
-      `grupo piso erasmus ${ciudad.nombre.toLowerCase()}`,
-      `buscar compañeros intercambio ${ciudad.nombre.toLowerCase()}`,
       `roommate erasmus ${ciudad.nombre.toLowerCase()}`,
+      `buscar piso erasmus ${ciudad.nombre.toLowerCase()}`,
+      `grupo piso erasmus ${ciudad.nombre.toLowerCase()}`,
+      `flatmate ${ciudad.nombre.toLowerCase()} erasmus`,
+      `find erasmus roommate ${ciudad.nombre.toLowerCase()}`,
+      `coinquilini erasmus ${ciudad.nombre.toLowerCase()}`,
+      `colocation erasmus ${ciudad.nombre.toLowerCase()}`,
       `piso compartido estudiantes ${ciudad.nombre.toLowerCase()}`,
+      `erasmus ${ciudad.nombre.toLowerCase()} 2026`,
     ],
+    alternates: {
+      canonical: `https://goflatt.com/ciudad/${ciudad.slug}`,
+    },
     openGraph: {
-      title: `Compañeros de piso Erasmus en ${ciudad.nombre} — GoFlatt`,
-      description: `Encuentra tu grupo de piso en ${ciudad.nombre} antes de llegar. ${ciudad.grupos} grupos activos ahora mismo.`,
+      title: `Roommates Erasmus en ${ciudad.nombre} 2026 — GoFlatt`,
+      description: `Encuentra compañeros de piso para tu Erasmus en ${ciudad.nombre} antes de llegar. ${ciudad.grupos} grupos activos ahora mismo. Gratis y sin drama.`,
       url: `https://goflatt.com/ciudad/${ciudad.slug}`,
+      images: [{ url: "/api/og", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Roommates Erasmus en ${ciudad.nombre} 2026 — GoFlatt`,
+      description: `Encuentra tu grupo de piso para Erasmus en ${ciudad.nombre}. Gratis.`,
+      images: ["/api/og"],
     },
   };
 }
@@ -47,6 +62,80 @@ export default async function CiudadPage({ params }) {
     }}>
       <Navbar />
 
+      {/* SCHEMA JSON-LD específico de ciudad */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: `Roommates Erasmus en ${ciudad.nombre} — GoFlatt`,
+            description: `Encuentra compañeros de piso para tu Erasmus en ${ciudad.nombre} antes de llegar.`,
+            url: `https://goflatt.com/ciudad/${ciudad.slug}`,
+            mainEntity: {
+              "@type": "Service",
+              name: "GoFlatt",
+              description: `Plataforma para encontrar compañeros de piso Erasmus en ${ciudad.nombre}`,
+              areaServed: ciudad.nombre,
+              audience: {
+                "@type": "Audience",
+                audienceType: "Estudiantes Erasmus e intercambio",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "EUR",
+              },
+            },
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "GoFlatt", item: "https://goflatt.com" },
+                { "@type": "ListItem", position: 2, name: "Ciudades", item: "https://goflatt.com/ciudad" },
+                { "@type": "ListItem", position: 3, name: ciudad.nombre, item: `https://goflatt.com/ciudad/${ciudad.slug}` },
+              ],
+            },
+          }),
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `¿Cómo encuentro compañeros de piso para Erasmus en ${ciudad.nombre}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Con GoFlatt puedes encontrar compañeros de piso para tu Erasmus en ${ciudad.nombre} en menos de 5 minutos. Crea tu perfil gratis, filtra por presupuesto y estilo de vida, y únete a grupos reales que ya están buscando personas como tú.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `¿Cuánto cuesta vivir en ${ciudad.nombre} siendo Erasmus?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Los grupos activos en GoFlatt para ${ciudad.nombre} tienen presupuestos entre 400€ y 900€/mes por persona en piso compartido. El precio varía según la zona y el número de compañeros.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `¿Cuándo debo empezar a buscar piso para Erasmus en ${ciudad.nombre}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Lo ideal es empezar 3 meses antes de llegar a ${ciudad.nombre}. En GoFlatt puedes formar el grupo primero y luego buscar piso juntos, lo que hace el proceso mucho más rápido y menos estresante.`,
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       {/* HERO */}
       <section style={{
         background: "linear-gradient(160deg, #f8f9ff 0%, #fff5f0 100%)",
@@ -63,14 +152,15 @@ export default async function CiudadPage({ params }) {
             marginBottom: "24px",
           }}>
             <span style={{ fontSize: "20px" }}>{ciudad.flag}</span>
-            {ciudad.pais}
+            {ciudad.pais} · {ciudad.grupos} grupos activos ahora
           </div>
 
+          {/* H1 optimizado con keyword principal */}
           <h1 style={{
             fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 900,
             letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "20px",
           }}>
-            Compañeros de piso<br />
+            Encuentra roommates<br />
             <span style={{ color: "#e8845a" }}>Erasmus en {ciudad.nombre}</span>
           </h1>
 
@@ -78,11 +168,12 @@ export default async function CiudadPage({ params }) {
             fontSize: "clamp(15px, 2vw, 18px)", color: "#666",
             lineHeight: 1.7, maxWidth: "560px", margin: "0 auto 16px",
           }}>
-            {ciudad.descripcion} Encuentra tu grupo de piso ideal antes de llegar.
+            ¿Te vas de Erasmus a {ciudad.nombre} y aún no tienes compañeros de piso?
+            En GoFlatt formas tu grupo <strong style={{ color: "#1e3a4a" }}>antes de coger el avión.</strong> Sin WhatsApp eternos, sin perfiles falsos.
           </p>
 
           <p style={{ fontSize: "14px", color: "#999", marginBottom: "40px" }}>
-            <strong style={{ color: "#e8845a" }}>{ciudad.grupos} grupos activos</strong> ahora mismo en {ciudad.nombre} · {ciudad.estudiantes} estudiantes internacionales
+            <strong style={{ color: "#e8845a" }}>{ciudad.grupos} grupos activos</strong> ahora mismo en {ciudad.nombre} · {ciudad.estudiantes} estudiantes internacionales al año
           </p>
 
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
@@ -114,9 +205,9 @@ export default async function CiudadPage({ params }) {
           gap: "24px", textAlign: "center",
         }}>
           {[
-            { num: ciudad.grupos, label: "grupos activos", sub: `en ${ciudad.nombre}` },
-            { num: ciudad.estudiantes, label: "estudiantes internacionales", sub: "cada año" },
-            { num: "<5min", label: "para encontrar grupo", sub: "de media" },
+            { num: ciudad.grupos, label: "grupos activos", sub: `buscando roommates en ${ciudad.nombre}` },
+            { num: ciudad.estudiantes, label: "Erasmus al año", sub: `llegan a ${ciudad.nombre}` },
+            { num: "<5min", label: "para encontrar grupo", sub: "de media en GoFlatt" },
           ].map((s, i) => (
             <div key={i} style={{
               background: "#f8f9ff", borderRadius: "20px",
@@ -135,28 +226,82 @@ export default async function CiudadPage({ params }) {
         </div>
       </section>
 
-      {/* CÓMO FUNCIONA */}
+      {/* POR QUÉ GOFLATT */}
       <section style={{ background: "#f8f9ff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
           <h2 style={{
             fontSize: "clamp(24px, 3vw, 40px)", fontWeight: 900,
             letterSpacing: "-1px", marginBottom: "12px", color: "#1e3a4a",
           }}>
-            Encuentra tu grupo en {ciudad.nombre}<br />en 4 pasos
+            Para de buscar en WhatsApp.<br />Empieza a encontrar.
           </h2>
           <p style={{ color: "#888", fontSize: "16px", marginBottom: "48px" }}>
-            Sin WhatsApp eternos. Sin perfiles falsos. Solo estudiantes reales.
+            Buscar roommates para Erasmus en {ciudad.nombre} no debería ser tan complicado.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "left" }}>
             {[
-              { step: "01", title: `Regístrate gratis`, desc: `Entra con Google en 10 segundos. Sin formularios eternos.` },
-              { step: "02", title: `Crea tu perfil de estudiante`, desc: `Presupuesto, estilo de vida, universidad. Solo lo esencial.` },
-              { step: "03", title: `Explora grupos en ${ciudad.nombre}`, desc: `Ve grupos reales buscando 1, 2 o 3 personas más. Filtra por presupuesto y zona.` },
-              { step: "04", title: `Conecta y busca piso juntos`, desc: `Cuando hay match os ponemos en contacto. A partir de ahí, sois vosotros.` },
-            ].map((s, i) => (
+              { icon: "😩", title: "El problema con WhatsApp", desc: `200 mensajes, nadie se aclara y los pisos en ${ciudad.nombre} se agotan mientras tú sigues buscando grupo.` },
+              { icon: "✅", title: "La solución GoFlatt", desc: `Filtra por presupuesto, estilo de vida y universidad. Solo contactas a quien de verdad encaja contigo en ${ciudad.nombre}.` },
+              { icon: "⚡", title: "En menos de 5 minutos", desc: "Entra con Google, crea tu perfil y ya ves grupos reales buscando personas como tú. Sin formularios eternos." },
+            ].map((f, i) => (
               <div key={i} style={{
                 display: "flex", gap: "16px", alignItems: "flex-start",
                 background: "white", borderRadius: "16px",
+                padding: "20px 24px", border: "1.5px solid #eef0f8",
+              }}>
+                <div style={{ fontSize: "28px", flexShrink: 0 }}>{f.icon}</div>
+                <div>
+                  <h3 style={{
+                    fontSize: "15px", fontWeight: 800, color: "#1e3a4a", marginBottom: "6px",
+                  }}>{f.title}</h3>
+                  <p style={{ color: "#888", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
+                    {f.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CÓMO FUNCIONA */}
+      <section style={{ background: "white", padding: "80px 24px" }}>
+        <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{
+            fontSize: "clamp(24px, 3vw, 40px)", fontWeight: 900,
+            letterSpacing: "-1px", marginBottom: "12px", color: "#1e3a4a",
+          }}>
+            De cero a grupo en {ciudad.nombre}<br />en menos de 5 minutos
+          </h2>
+          <p style={{ color: "#888", fontSize: "16px", marginBottom: "48px" }}>
+            Sin rollos, sin registros eternos, sin perfiles falsos.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "left" }}>
+            {[
+              {
+                step: "01", emoji: "🚀",
+                title: "Entra gratis con Google",
+                desc: "Sin contraseñas, sin formularios. En 10 segundos estás dentro."
+              },
+              {
+                step: "02", emoji: "👤",
+                title: "Crea tu perfil Erasmus",
+                desc: `Universidad, presupuesto, estilo de vida. Solo lo importante para encontrar el grupo perfecto en ${ciudad.nombre}.`
+              },
+              {
+                step: "03", emoji: "🔍",
+                title: `Explora grupos en ${ciudad.nombre}`,
+                desc: "Ve grupos reales con fotos, presupuesto y % de compatibilidad contigo. Filtra por zona y fecha de llegada."
+              },
+              {
+                step: "04", emoji: "🎉",
+                title: "Match y a buscar piso juntos",
+                desc: `Cuando hay match os ponemos en contacto. A partir de ahí, buscáis piso en ${ciudad.nombre} como equipo.`
+              },
+            ].map((s, i) => (
+              <div key={i} style={{
+                display: "flex", gap: "16px", alignItems: "flex-start",
+                background: "#f8f9ff", borderRadius: "16px",
                 padding: "20px 24px", border: "1.5px solid #eef0f8",
               }}>
                 <div style={{
@@ -167,9 +312,9 @@ export default async function CiudadPage({ params }) {
                   color: "white", fontWeight: 900, fontSize: "12px", flexShrink: 0,
                 }}>{s.step}</div>
                 <div>
+                  <div style={{ fontSize: "18px", marginBottom: "4px" }}>{s.emoji}</div>
                   <h3 style={{
-                    fontSize: "15px", fontWeight: 800, color: "#1e3a4a",
-                    marginBottom: "4px",
+                    fontSize: "15px", fontWeight: 800, color: "#1e3a4a", marginBottom: "4px",
                   }}>{s.title}</h3>
                   <p style={{ color: "#888", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
                     {s.desc}
@@ -181,37 +326,41 @@ export default async function CiudadPage({ params }) {
         </div>
       </section>
 
-      {/* FAQ SEO */}
-      <section style={{ background: "white", padding: "80px 24px" }}>
+      {/* FAQ SEO — con schema ya incluido arriba */}
+      <section style={{ background: "#f8f9ff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <h2 style={{
             fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900,
             letterSpacing: "-1px", marginBottom: "40px", color: "#1e3a4a",
             textAlign: "center",
           }}>
-            Preguntas frecuentes sobre<br />Erasmus en {ciudad.nombre}
+            Todo lo que necesitas saber sobre<br />buscar piso Erasmus en {ciudad.nombre}
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {[
               {
-                q: `¿Cómo encuentro compañeros de piso para Erasmus en ${ciudad.nombre}?`,
-                a: `GoFlatt es la plataforma más rápida para encontrar compañeros de piso para tu Erasmus en ${ciudad.nombre}. Crea tu perfil, filtra por presupuesto y estilo de vida, y contacta con grupos que ya están buscando personas como tú.`,
+                q: `¿Cómo encuentro roommates para Erasmus en ${ciudad.nombre}?`,
+                a: `Con GoFlatt es super fácil. Creas tu perfil gratis, pones tu presupuesto y cuándo llegas a ${ciudad.nombre}, y el algoritmo te muestra grupos compatibles contigo. Puedes solicitar unirte con un mensaje y si hay match os ponemos en contacto.`,
               },
               {
                 q: `¿Cuánto cuesta vivir en ${ciudad.nombre} siendo Erasmus?`,
-                a: `Los grupos activos en GoFlatt para ${ciudad.nombre} tienen presupuestos entre 400€ y 900€/mes por persona en piso compartido. El coste varía según la zona y el número de compañeros.`,
+                a: `En los grupos activos de GoFlatt para ${ciudad.nombre} los presupuestos van de 400€ a 900€/mes por persona en piso compartido. Depende mucho de la zona — el centro siempre es más caro. Lo mejor es filtrar por presupuesto directamente en la plataforma.`,
               },
               {
-                q: `¿Cuándo debo empezar a buscar piso para Erasmus en ${ciudad.nombre}?`,
-                a: `Te recomendamos empezar a buscar compañeros de piso al menos 3 meses antes de llegar a ${ciudad.nombre}. Con GoFlatt puedes formar el grupo primero y luego buscar piso juntos, lo que hace el proceso mucho más rápido.`,
+                q: `¿Cuándo tengo que empezar a buscar piso para Erasmus en ${ciudad.nombre}?`,
+                a: `Cuanto antes mejor. Los pisos en ${ciudad.nombre} vuelan, especialmente los de septiembre. Te recomendamos empezar 3-4 meses antes de llegar. Con GoFlatt primero formas el grupo y luego buscáis piso juntos, lo que es mucho más rápido.`,
               },
               {
-                q: `¿Es seguro usar GoFlatt para encontrar compañeros de piso en ${ciudad.nombre}?`,
-                a: `Todos los usuarios de GoFlatt se registran con su cuenta de Google verificada. Puedes ver el perfil completo de cada persona antes de contactar, incluyendo su universidad, presupuesto y estilo de vida.`,
+                q: `¿Es gratis GoFlatt para buscar compañeros de piso en ${ciudad.nombre}?`,
+                a: `Sí, 100% gratis. Sin tarjeta, sin suscripción, sin letra pequeña. Solo te registras con Google y ya puedes ver todos los grupos activos en ${ciudad.nombre}.`,
+              },
+              {
+                q: `¿Qué diferencia a GoFlatt de los grupos de WhatsApp de Erasmus?`,
+                a: `En WhatsApp no sabes con quién vas a vivir hasta que ya es demasiado tarde. GoFlatt te muestra el perfil completo de cada persona — universidad, presupuesto, estilo de vida — y te calcula el % de compatibilidad antes de que contactéis. Nada de sorpresas.`,
               },
             ].map((faq, i) => (
               <div key={i} style={{
-                background: "#f8f9ff", borderRadius: "16px",
+                background: "white", borderRadius: "16px",
                 padding: "24px", border: "1.5px solid #eef0f8",
               }}>
                 <h3 style={{
@@ -228,15 +377,18 @@ export default async function CiudadPage({ params }) {
       </section>
 
       {/* OTRAS CIUDADES */}
-      <section style={{ background: "#f8f9ff", padding: "80px 24px" }}>
+      <section style={{ background: "white", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <h2 style={{
             fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 900,
-            letterSpacing: "-0.5px", marginBottom: "32px", color: "#1e3a4a",
+            letterSpacing: "-0.5px", marginBottom: "8px", color: "#1e3a4a",
             textAlign: "center",
           }}>
-            También disponible en otras ciudades
+            ¿Aún no sabes a qué ciudad vas?
           </h2>
+          <p style={{ textAlign: "center", color: "#999", fontSize: "15px", marginBottom: "32px" }}>
+            Puedes añadir varios destinos y te mostramos grupos en todos ellos
+          </p>
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
@@ -244,17 +396,17 @@ export default async function CiudadPage({ params }) {
           }}>
             {ciudadesRelacionadas.map((c, i) => (
               <Link key={i} href={`/ciudad/${c.slug}`} style={{
-                background: "white", borderRadius: "16px",
+                background: "#f8f9ff", borderRadius: "16px",
                 padding: "20px 16px", textAlign: "center",
                 textDecoration: "none", border: "1.5px solid #eef0f8",
-                transition: "all 0.2s", display: "block",
+                display: "block", transition: "all 0.2s",
               }}>
                 <div style={{ fontSize: "28px", marginBottom: "8px" }}>{c.flag}</div>
                 <div style={{ fontWeight: 700, fontSize: "14px", color: "#1e3a4a", marginBottom: "4px" }}>
                   {c.nombre}
                 </div>
                 <div style={{ fontSize: "11px", color: "#e8845a", fontWeight: 600 }}>
-                  {c.grupos} grupos
+                  {c.grupos} grupos activos
                 </div>
               </Link>
             ))}
@@ -267,13 +419,19 @@ export default async function CiudadPage({ params }) {
         background: "linear-gradient(135deg, #1e3a4a, #2a5568)",
         padding: "80px 24px", textAlign: "center",
       }}>
+        <p style={{
+          fontSize: "12px", fontWeight: 700, color: "#5aacb8",
+          letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px",
+        }}>
+          {ciudad.grupos} grupos esperándote en {ciudad.nombre}
+        </p>
         <h2 style={{
           fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900,
           color: "white", letterSpacing: "-1.5px",
           lineHeight: 1.1, marginBottom: "16px",
         }}>
-          ¿Listo para tu Erasmus<br />
-          <span style={{ color: "#e8845a" }}>en {ciudad.nombre}?</span>
+          Tu Erasmus en {ciudad.nombre}<br />
+          <span style={{ color: "#e8845a" }}>mola más con la gente correcta.</span>
         </h2>
         <p style={{
           color: "rgba(255,255,255,0.6)", fontSize: "16px",
@@ -288,7 +446,7 @@ export default async function CiudadPage({ params }) {
           borderRadius: "100px", textDecoration: "none", fontSize: "16px",
           boxShadow: "0 8px 40px rgba(232,132,90,0.4)",
         }}>
-          Empezar gratis →
+          Buscar roommates en {ciudad.nombre} →
         </a>
       </section>
 

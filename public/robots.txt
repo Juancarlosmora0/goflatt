@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /feed/
+Disallow: /perfil/
+Disallow: /solicitudes/
+Disallow: /grupos/crear/
+Disallow: /onboarding/
+Disallow: /auth/
+
+Sitemap: https://goflatt.com/sitemap.xml
